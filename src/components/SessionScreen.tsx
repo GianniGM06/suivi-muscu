@@ -53,7 +53,6 @@ export function SessionScreen({
   const [exoOuvert, setExoOuvert] = useState<string | null>(seance.exercices[0]?.id ?? null);
   const [variantesPour, setVariantesPour] = useState<Exercice | null>(null);
   const [infosOuvertes, setInfosOuvertes] = useState(false);
-  const [geneConfirmee, setGeneConfirmee] = useState(false);
 
   const maj = (l: SessionRecord) => {
     setLog(l);
@@ -70,8 +69,6 @@ export function SessionScreen({
   const seriesFaites = log.exercices
     .filter((e) => !e.saute)
     .reduce((n, e) => n + e.series.filter((s) => s.faite).length, 0);
-
-  const geneAlerte = (log.geneEpaule ?? 0) > 3 || (log.geneCheville ?? 0) > 3;
 
   return (
     <div className="screen screen-session">
@@ -256,50 +253,6 @@ export function SessionScreen({
           </button>
         </div>
         {seance.cardio.note && <p className="muted small">{seance.cardio.note}</p>}
-      </div>
-
-      <div className="card">
-        <h3>Ressenti (local uniquement, jamais synchronisé)</h3>
-        <label className="gene-label">
-          Gêne épaule : {log.geneEpaule ?? 0}/10
-          <input
-            type="range"
-            min={0}
-            max={10}
-            value={log.geneEpaule ?? 0}
-            onChange={(e) => {
-              maj({ ...log, geneEpaule: Number(e.target.value) });
-              setGeneConfirmee(false);
-            }}
-          />
-        </label>
-        <label className="gene-label">
-          Gêne cheville : {log.geneCheville ?? 0}/10
-          <input
-            type="range"
-            min={0}
-            max={10}
-            value={log.geneCheville ?? 0}
-            onChange={(e) => {
-              maj({ ...log, geneCheville: Number(e.target.value) });
-              setGeneConfirmee(false);
-            }}
-          />
-        </label>
-        {geneAlerte && !geneConfirmee && (
-          <div className="alert">
-            🛑 Gêne &gt; 3/10 — rappel du programme : remplace l'exercice par une variante moins
-            contraignante, ou arrête l'exercice concerné. Si la gêne persiste ou augmente : kiné.
-            <button className="btn btn-sm" onClick={() => setGeneConfirmee(true)}>
-              J'ai compris, je continue en connaissance de cause
-            </button>
-          </div>
-        )}
-        <textarea
-          placeholder="Note libre (locale, jamais envoyée sur GitHub)"
-          value={log.note ?? ""}
-          onChange={(e) => maj({ ...log, note: e.target.value })}
-        />
       </div>
 
       <button

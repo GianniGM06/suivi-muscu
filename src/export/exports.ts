@@ -116,14 +116,6 @@ export function bilanPourClaude(data: AppData): string {
     for (const [id, n] of sautes.entries()) l.push(`- ${getExercice(id)?.nom ?? id} : ${n}×`);
   }
 
-  // Gênes — AGRÉGÉ uniquement, sans détail
-  const epaule3 = sessions.filter((s) => (s.geneEpaule ?? 0) > 3).length;
-  const cheville3 = sessions.filter((s) => (s.geneCheville ?? 0) > 3).length;
-  l.push("");
-  l.push("## Alertes (agrégées)");
-  l.push(`- Séances avec gêne épaule > 3/10 : ${epaule3}`);
-  l.push(`- Séances avec gêne cheville > 3/10 : ${cheville3}`);
-
   l.push("");
   l.push("## À adapter / questions");
   l.push("- (à compléter avant l'envoi)");
