@@ -1,0 +1,166 @@
+{
+  "app": "suivi-muscu",
+  "schemaVersion": 1,
+  "exporteLe": "2026-08-01T21:51:15.177Z",
+  "sessions": [
+    {
+      "id": "s-1785620343246",
+      "type": "A",
+      "dateDebut": "2026-08-01T21:39:03.247Z",
+      "dateFin": "2026-08-01T21:51:00.036Z",
+      "statut": "terminee",
+      "routineFaite": false,
+      "cardio": {
+        "fait": false
+      },
+      "rpeGlobal": 6,
+      "exercices": [
+        {
+          "exerciceId": "dev-incline",
+          "varianteId": "hs-incline",
+          "saute": false,
+          "series": [
+            {
+              "reps": 10,
+              "faite": false
+            },
+            {
+              "reps": 10,
+              "faite": false
+            },
+            {
+              "reps": 10,
+              "faite": false
+            },
+            {
+              "reps": 10,
+              "faite": false
+            }
+          ]
+        },
+        {
+          "exerciceId": "dev-horizontal",
+          "varianteId": "tg-chest",
+          "saute": false,
+          "series": [
+            {
+              "reps": 10,
+              "faite": false
+            },
+            {
+              "reps": 10,
+              "faite": false
+            },
+            {
+              "reps": 10,
+              "faite": false
+            }
+          ]
+        },
+        {
+          "exerciceId": "dev-epaules",
+          "varianteId": "tg-shoulder",
+          "saute": false,
+          "series": [
+            {
+              "reps": 10,
+              "faite": false
+            },
+            {
+              "reps": 10,
+              "faite": false
+            },
+            {
+              "reps": 10,
+              "faite": false
+            }
+          ]
+        },
+        {
+          "exerciceId": "ecarte",
+          "varianteId": "tg-pec",
+          "saute": false,
+          "series": [
+            {
+              "reps": 12,
+              "faite": false
+            },
+            {
+              "reps": 12,
+              "faite": false
+            },
+            {
+              "reps": 12,
+              "faite": false
+            }
+          ]
+        },
+        {
+          "exerciceId": "elev-lat-a",
+          "varianteId": "cable-lat",
+          "saute": false,
+          "series": [
+            {
+              "reps": 15,
+              "faite": false
+            },
+            {
+              "reps": 15,
+              "faite": false
+            },
+            {
+              "reps": 15,
+              "faite": false
+            }
+          ]
+        },
+        {
+          "exerciceId": "triceps-a",
+          "varianteId": "cable-pushdown",
+          "saute": false,
+          "series": [
+            {
+              "reps": 12,
+              "faite": false
+            },
+            {
+              "reps": 12,
+              "faite": false
+            },
+            {
+              "reps": 12,
+              "faite": false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "chargesReference": [
+    {
+      "exerciceId": "dev-incline",
+      "varianteId": "hs-incline"
+    },
+    {
+      "exerciceId": "dev-horizontal",
+      "varianteId": "tg-chest"
+    },
+    {
+      "exerciceId": "dev-epaules",
+      "varianteId": "tg-shoulder"
+    },
+    {
+      "exerciceId": "ecarte",
+      "varianteId": "tg-pec"
+    },
+    {
+      "exerciceId": "elev-lat-a",
+      "varianteId": "cable-lat"
+    },
+    {
+      "exerciceId": "triceps-a",
+      "varianteId": "cable-pushdown"
+    }
+  ],
+  "tests": []
+}
