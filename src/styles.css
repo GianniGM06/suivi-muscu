@@ -101,7 +101,7 @@ details.card summary { cursor: pointer; font-weight: 600; min-height: 28px; }
 .btn-ghost { border: none; background: transparent; }
 .btn-sub { display: block; font-size: 0.75rem; font-weight: 400; opacity: 0.85; }
 .btn-col { display: flex; flex-direction: column; gap: 10px; }
-.btn-finish { position: sticky; bottom: calc(76px + env(safe-area-inset-bottom)); z-index: 5; }
+.btn-finish { margin-top: 8px; }
 
 /* ==== Accueil ==== */
 .badge { font-size: 0.8rem; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--border); }
@@ -163,7 +163,8 @@ details.card summary { cursor: pointer; font-weight: 600; min-height: 28px; }
   display: grid; grid-template-columns: 24px 1fr 1fr 1fr 52px;
   gap: 8px; align-items: center; margin-bottom: 8px;
 }
-.set-head { font-size: 0.8rem; color: var(--muted); margin-bottom: 2px; }
+.set-head { font-size: 0.8rem; color: var(--muted); margin-bottom: 2px; text-align: center; }
+.set-row > span { text-align: center; }
 .set-row input {
   width: 100%; min-height: 44px; font-size: 1.05rem; text-align: center;
   border: 1px solid var(--border); border-radius: 10px;

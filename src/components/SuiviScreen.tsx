@@ -106,8 +106,7 @@ function Charges({ data }: { data: AppData }) {
                       <p key={vid} className="small">
                         {variante?.nom ?? vid}
                         {vid === st.varianteActive ? " (active)" : ""} — Charge de référence :{" "}
-                        <strong>{v.chargeReference ?? "—"} kg</strong> · Dernière charge utilisée :{" "}
-                        {v.derniereCharge ?? "—"} kg
+                        <strong>{v.chargeReference ?? "—"} kg</strong>
                         {v.meilleurePerf && (
                           <>
                             {" "}· Meilleure performance : {v.meilleurePerf.valeur} {v.meilleurePerf.unite} (

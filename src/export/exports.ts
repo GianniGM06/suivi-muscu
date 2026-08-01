@@ -89,7 +89,7 @@ export function bilanPourClaude(data: AppData): string {
     const exo = getExercice(exerciceId);
     const v = st.parVariante[st.varianteActive];
     if (v?.chargeReference !== undefined) {
-      l.push(`- ${exo?.nom ?? exerciceId} : ${v.chargeReference} kg (dernière utilisée : ${v.derniereCharge ?? "—"} kg)`);
+      l.push(`- ${exo?.nom ?? exerciceId} : ${v.chargeReference} kg`);
     }
   }
 

@@ -125,9 +125,7 @@ export function SessionScreen({
                 </div>
                 <div className="muted variante-active">▸ {variante.nom}{variante.machine ? ` (${variante.machine})` : ""}</div>
                 {!exo.sansCharge && (
-                  <div className="muted">
-                    Charge de référence : {st?.chargeReference ?? "—"} kg · Dernière charge utilisée : {st?.derniereCharge ?? "—"} kg
-                  </div>
+                  <div className="muted">Charge de référence : {st?.chargeReference ?? "—"} kg</div>
                 )}
               </div>
               <span className="exo-chevron">{ouvert ? "▾" : "▸"}</span>
