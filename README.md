@@ -157,3 +157,4 @@ suivi-muscu/
 - Le dépôt étant public, `data/suivi.json` (séances, charges, tests) est public. Rien d'autre n'y part.
 
 *Cette application ne fournit aucun diagnostic médical. En cas de douleur qui persiste ou augmente : professionnel de santé.*
+
