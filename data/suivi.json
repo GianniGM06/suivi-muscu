@@ -1,8 +1,187 @@
 {
   "app": "suivi-muscu",
   "schemaVersion": 1,
-  "exporteLe": "2026-08-01T22:04:39.782792Z",
-  "sessions": [],
-  "chargesReference": [],
+  "exporteLe": "2026-08-02T13:49:48.624Z",
+  "sessions": [
+    {
+      "id": "s-1785675406766",
+      "type": "B",
+      "dateDebut": "2026-08-02T12:56:46.766Z",
+      "dateFin": "2026-08-02T13:49:37.064Z",
+      "statut": "terminee",
+      "routineFaite": true,
+      "cardio": {
+        "fait": true
+      },
+      "rpeGlobal": 9,
+      "exercices": [
+        {
+          "exerciceId": "cmj",
+          "varianteId": "cmj-std",
+          "saute": false,
+          "series": [
+            {
+              "reps": 3,
+              "rpe": 3,
+              "faite": true
+            },
+            {
+              "reps": 3,
+              "rpe": 3,
+              "faite": true
+            },
+            {
+              "reps": 3,
+              "rpe": 3,
+              "faite": true
+            }
+          ]
+        },
+        {
+          "exerciceId": "box-jump",
+          "varianteId": "box-std",
+          "saute": false,
+          "series": [
+            {
+              "reps": 3,
+              "rpe": 5,
+              "faite": true
+            },
+            {
+              "reps": 3,
+              "rpe": 5,
+              "faite": true
+            },
+            {
+              "reps": 3,
+              "rpe": 5,
+              "faite": true
+            }
+          ]
+        },
+        {
+          "exerciceId": "presse",
+          "varianteId": "tg-legpress",
+          "saute": false,
+          "series": [
+            {
+              "charge": 200,
+              "reps": 8,
+              "rpe": 8,
+              "faite": true
+            },
+            {
+              "charge": 200,
+              "reps": 8,
+              "rpe": 7,
+              "faite": true
+            },
+            {
+              "reps": 8,
+              "rpe": 8,
+              "faite": true
+            },
+            {
+              "reps": 8,
+              "rpe": 8,
+              "faite": true
+            }
+          ]
+        },
+        {
+          "exerciceId": "quad-uni",
+          "varianteId": "tg-legext",
+          "saute": false,
+          "series": [
+            {
+              "charge": 30,
+              "reps": 10,
+              "rpe": 8,
+              "faite": true
+            },
+            {
+              "charge": 30,
+              "reps": 10,
+              "rpe": 9,
+              "faite": true
+            },
+            {
+              "charge": 30,
+              "reps": 10,
+              "rpe": 10,
+              "faite": true
+            }
+          ]
+        },
+        {
+          "exerciceId": "abduct",
+          "varianteId": "tg-abductor",
+          "saute": false,
+          "series": [
+            {
+              "charge": 90,
+              "reps": 10,
+              "rpe": 8,
+              "faite": true
+            },
+            {
+              "charge": 90,
+              "reps": 10,
+              "rpe": 8,
+              "faite": true
+            },
+            {
+              "reps": 10,
+              "rpe": 8,
+              "faite": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "chargesReference": [
+    {
+      "exerciceId": "cmj",
+      "varianteId": "cmj-std"
+    },
+    {
+      "exerciceId": "box-jump",
+      "varianteId": "box-std"
+    },
+    {
+      "exerciceId": "presse",
+      "varianteId": "tg-legpress",
+      "chargeReference": 200,
+      "derniereCharge": 200,
+      "meilleurePerf": {
+        "valeur": 200,
+        "unite": "kg",
+        "date": "2026-08-02T13:49:47.572Z"
+      }
+    },
+    {
+      "exerciceId": "quad-uni",
+      "varianteId": "tg-legext",
+      "chargeReference": 30,
+      "derniereCharge": 30,
+      "meilleurePerf": {
+        "valeur": 30,
+        "unite": "kg",
+        "date": "2026-08-02T13:49:47.572Z"
+      }
+    },
+    {
+      "exerciceId": "abduct",
+      "varianteId": "tg-abductor",
+      "chargeReference": 90,
+      "derniereCharge": 90,
+      "meilleurePerf": {
+        "valeur": 90,
+        "unite": "kg",
+        "date": "2026-08-02T13:49:47.572Z"
+      }
+    }
+  ],
   "tests": []
 }
