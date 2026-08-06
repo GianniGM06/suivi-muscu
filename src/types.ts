@@ -65,7 +65,13 @@ export interface Seance {
   routinePosition?: "debut" | "fin";
   exercices: Exercice[];
   cardio?: Cardio; // absent depuis la v4 : le cardio se fait hors salle
+  piscine?: PiscineBloc; // mode Maison : bloc optionnel en fin de séance
   signauxArret: string[];
+}
+
+export interface PiscineBloc {
+  consigne: string;
+  reglesEpaule: string[];
 }
 
 export type SeanceId = "A" | "B" | "C" | "D" | "E" | "M1" | "M2" | "M3" | "M4";
@@ -107,6 +113,7 @@ export interface SessionRecord {
   exercices: ExoLog[];
   routineFaite: boolean;
   cardio: { fait: boolean; dureeMin?: number };
+  piscine?: { fait: boolean; allersRetours?: number; nage?: string };
   rpeGlobal?: number;
   // ---- Champs LOCAUX UNIQUEMENT (jamais synchronisés — voir sync/filter.ts) ----
   geneEpaule?: number;
@@ -144,7 +151,8 @@ export interface GithubConfig {
   owner: string;
   repo: string;
   branch: string;
-  path: string;
+  path: string; // séances SALLE
+  pathMaison: string; // séances MAISON — fichier séparé
   token: string; // stocké UNIQUEMENT en localStorage, jamais synchronisé ni affiché en clair
 }
 
@@ -152,15 +160,16 @@ export interface Settings {
   github: GithubConfig;
   theme: "auto" | "clair" | "sombre";
   son: boolean; // bip de fin de chrono (casque Bluetooth inclus)
-  mode: Mode; // "salle" (programme v4) ou "maison" (élastiques + piscine)
 }
+// NB : le mode (salle/maison) n'est PAS persisté — l'app rouvre toujours sur « Salle ».
 
 export type SyncStatut = "jamais" | "ok" | "erreur" | "local-modifie";
 
 export interface SyncState {
   statut: SyncStatut;
   lastSyncAt?: string;
-  lastSha?: string;
+  lastSha?: string; // SHA du fichier SALLE
+  lastShaMaison?: string; // SHA du fichier MAISON
   lastError?: string;
 }
 
@@ -204,6 +213,7 @@ export interface SyncSession {
   exercices: SyncExo[];
   routineFaite: boolean;
   cardio: { fait: boolean; dureeMin?: number };
+  piscine?: { fait: boolean; allersRetours?: number; nage?: string };
   rpeGlobal?: number;
 }
 

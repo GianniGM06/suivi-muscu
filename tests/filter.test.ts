@@ -10,6 +10,7 @@ function donneesAvecChampsSensibles(): AppData {
     repo: "suivi-muscu",
     branch: "main",
     path: "data/suivi.json",
+    pathMaison: "data/suivi-maison.json",
     token: "github_pat_SECRET_NE_DOIT_JAMAIS_SORTIR"
   };
   d.sessions.push({
@@ -98,6 +99,50 @@ describe("Filtre de confidentialité (toSyncPayload)", () => {
     expect(payload.chargesReference[0].chargeReference).toBe(60);
     expect(payload.chargesReference[0].meilleurePerf?.valeur).toBe(62.5);
     expect(payload.tests).toHaveLength(1);
+  });
+});
+
+describe("Séparation Salle / Maison", () => {
+  function avecSeanceMaison(): AppData {
+    const d = donneesAvecChampsSensibles();
+    d.sessions.push({
+      id: "s-maison-1",
+      type: "M1",
+      dateDebut: "2026-08-11T09:00:00.000Z",
+      dateFin: "2026-08-11T09:30:00.000Z",
+      statut: "terminee",
+      routineFaite: true,
+      cardio: { fait: false },
+      piscine: { fait: true, allersRetours: 8, nage: "brasse" },
+      exercices: [
+        {
+          exerciceId: "m-pompes",
+          varianteId: "m-pompes-std",
+          saute: false,
+          series: [{ reps: 18, faite: true }]
+        }
+      ]
+    });
+    d.exerciseState["m-pompes"] = { varianteActive: "m-pompes-std", parVariante: { "m-pompes-std": {} } };
+    return d;
+  }
+
+  it("le fichier SALLE ne contient aucune séance maison", () => {
+    const p = toSyncPayload(avecSeanceMaison(), "salle");
+    expect(p.sessions.map((s) => s.type)).toEqual(["C"]);
+    expect(p.chargesReference.some((c) => c.exerciceId.startsWith("m-"))).toBe(false);
+  });
+
+  it("le fichier MAISON ne contient que les séances maison et aucun test de force", () => {
+    const p = toSyncPayload(avecSeanceMaison(), "maison");
+    expect(p.sessions.map((s) => s.type)).toEqual(["M1"]);
+    expect(p.sessions[0].piscine?.allersRetours).toBe(8);
+    expect(p.tests).toEqual([]);
+  });
+
+  it("le fichier MAISON reste exempt de champs sensibles", () => {
+    const json = JSON.stringify(toSyncPayload(avecSeanceMaison(), "maison"));
+    for (const cle of CLES_INTERDITES) expect(json.includes(`"${cle}"`)).toBe(false);
   });
 });
 

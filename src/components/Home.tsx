@@ -18,16 +18,17 @@ function joursConsecutifsEntrainement(data: AppData): number {
 
 export function Home({
   data,
+  mode,
   onStart,
   onNav,
   onChangeMode
 }: {
   data: AppData;
+  mode: Mode;
   onStart: (id: SeanceId) => void;
   onNav: (v: "suivi" | "reglages") => void;
   onChangeMode: (m: Mode) => void;
 }) {
-  const mode = data.settings.mode;
   const seances = getSeances(mode);
   const ordre = getOrdre(mode);
 

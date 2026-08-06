@@ -8,9 +8,9 @@ import { TimerBar } from "./components/TimerBar";
 import { useTimer } from "./hooks/useTimer";
 import { loadData, requestPersistentStorage, saveData } from "./storage";
 import { initSound } from "./sound";
-import { chargerDepuisGithub, sauvegarderSurGithub } from "./sync/github";
+import { chargerDepuisGithub, modesASauvegarder, sauvegarderSurGithub } from "./sync/github";
 import { exportJsonComplet } from "./export/exports";
-import type { AppData, SeanceId, SessionRecord, Settings } from "./types";
+import type { AppData, Mode, SeanceId, SessionRecord, Settings } from "./types";
 
 type Vue =
   | { nom: "home" }
@@ -23,7 +23,9 @@ export default function App() {
   const [data, setData] = useState<AppData>(() => loadData());
   const [vue, setVue] = useState<Vue>({ nom: "home" });
   const [syncEnCours, setSyncEnCours] = useState(false);
-  const [conflit, setConflit] = useState<string | null>(null);
+  const [conflit, setConflit] = useState<{ message: string; mode: Mode } | null>(null);
+  // Le mode n'est PAS persisté : l'app rouvre toujours sur « Salle ».
+  const [mode, setMode] = useState<Mode>("salle");
   const timer = useTimer();
 
   useEffect(() => {
@@ -98,28 +100,57 @@ export default function App() {
     });
   };
 
-  const lancerSync = async (opts: { force?: boolean; keepRemote?: boolean } = {}) => {
+  /** Sauvegarde les deux fichiers (salle + maison) selon ce qui existe. */
+  const lancerSync = async (opts: { force?: boolean; seulement?: Mode } = {}) => {
     setSyncEnCours(true);
     setConflit(null);
-    const res = await sauvegarderSurGithub(data, opts);
+    const modes = opts.seulement ? [opts.seulement] : modesASauvegarder(data);
+    let erreur: string | null = null;
+
+    for (const m of modes) {
+      const res = await sauvegarderSurGithub(data, m, { force: opts.force });
+      if (res.ok) {
+        setData((d) => ({
+          ...d,
+          sync: {
+            ...d.sync,
+            statut: "ok",
+            lastSyncAt: res.date,
+            lastError: undefined,
+            ...(m === "maison" ? { lastShaMaison: res.sha } : { lastSha: res.sha })
+          }
+        }));
+      } else if (res.kind === "conflit") {
+        setSyncEnCours(false);
+        setConflit({ message: res.message, mode: m });
+        return;
+      } else if (res.kind !== "rien") {
+        erreur = res.message;
+      }
+    }
+
     setSyncEnCours(false);
-    if (res.ok) {
-      setData((d) => ({ ...d, sync: { statut: "ok", lastSyncAt: res.date, lastSha: res.sha } }));
-    } else if (res.kind === "conflit") {
-      setConflit(res.message);
-    } else {
-      setData((d) => ({ ...d, sync: { ...d.sync, statut: "erreur", lastError: res.message } }));
+    if (erreur) {
+      const msg = erreur;
+      setData((d) => ({ ...d, sync: { ...d.sync, statut: "erreur", lastError: msg } }));
     }
   };
 
   const garderVersionDistante = async () => {
-    const res = await chargerDepuisGithub(data.settings.github);
+    if (!conflit) return;
+    const m = conflit.mode;
+    const res = await chargerDepuisGithub(data.settings.github, m);
     setConflit(null);
     if (res.ok) {
       // On aligne simplement le SHA : les données distantes restent la référence publique.
       setData((d) => ({
         ...d,
-        sync: { statut: "ok", lastSyncAt: new Date().toISOString(), lastSha: res.sha }
+        sync: {
+          ...d.sync,
+          statut: "ok",
+          lastSyncAt: new Date().toISOString(),
+          ...(m === "maison" ? { lastShaMaison: res.sha } : { lastSha: res.sha })
+        }
       }));
       alert(
         "Version distante conservée. Tes données locales complètes restent intactes sur cet appareil ; la prochaine sauvegarde proposera à nouveau l'écrasement."
@@ -153,11 +184,10 @@ export default function App() {
       {vue.nom === "home" && (
         <Home
           data={data}
+          mode={mode}
           onStart={(id) => setVue({ nom: "session", seanceId: id })}
           onNav={(v) => setVue({ nom: v === "suivi" ? "suivi" : "reglages" })}
-          onChangeMode={(mode) =>
-            setData((d) => ({ ...d, settings: { ...d.settings, mode } }))
-          }
+          onChangeMode={setMode}
         />
       )}
       {vue.nom === "session" && (
@@ -204,9 +234,11 @@ export default function App() {
       {conflit && (
         <div className="sheet-backdrop">
           <div className="sheet">
-            <div className="sheet-head"><h3>⚠️ Conflit de version</h3></div>
+            <div className="sheet-head">
+              <h3>⚠️ Conflit de version ({conflit.mode})</h3>
+            </div>
             <div className="sheet-body">
-              <p>{conflit}</p>
+              <p>{conflit.message}</p>
               <p className="muted small">
                 Le fichier sur GitHub a changé depuis ta dernière sauvegarde (probablement modifié
                 depuis un autre appareil ou à la main). Rien n'a été écrasé.
@@ -215,7 +247,10 @@ export default function App() {
                 <button className="btn" onClick={() => exportJsonComplet(data)}>
                   ⬇ D'abord : exporter mes données locales (recommandé)
                 </button>
-                <button className="btn btn-primary" onClick={() => lancerSync({ force: true })}>
+                <button
+                  className="btn btn-primary"
+                  onClick={() => lancerSync({ force: true, seulement: conflit.mode })}
+                >
                   Écraser avec mes données locales
                   <span className="btn-sub">La version GitHub sera remplacée par ce téléphone</span>
                 </button>

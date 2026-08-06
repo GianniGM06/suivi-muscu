@@ -272,6 +272,75 @@ export function SessionScreen({
         </div>
       )}
 
+      {seance.piscine && (
+        <div className="card piscine-card">
+          <h3>🏊 Piscine (optionnel)</h3>
+          <label className="check-label">
+            <input
+              type="checkbox"
+              checked={log.piscine?.fait ?? false}
+              onChange={(e) =>
+                maj({ ...log, piscine: { ...(log.piscine ?? {}), fait: e.target.checked } })
+              }
+            />
+            J'ai fait la piscine
+          </label>
+
+          <div className="form-row">
+            <label style={{ flex: 1, margin: 0 }}>
+              Allers-retours
+              <input
+                type="number"
+                inputMode="numeric"
+                placeholder="ex. 8"
+                value={log.piscine?.allersRetours ?? ""}
+                onChange={(e) =>
+                  maj({
+                    ...log,
+                    piscine: {
+                      fait: log.piscine?.fait ?? true,
+                      nage: log.piscine?.nage,
+                      allersRetours: e.target.value === "" ? undefined : Number(e.target.value)
+                    }
+                  })
+                }
+              />
+            </label>
+            <label style={{ flex: 1, margin: 0 }}>
+              Nage
+              <select
+                value={log.piscine?.nage ?? "brasse"}
+                onChange={(e) =>
+                  maj({
+                    ...log,
+                    piscine: {
+                      fait: log.piscine?.fait ?? true,
+                      allersRetours: log.piscine?.allersRetours,
+                      nage: e.target.value
+                    }
+                  })
+                }
+              >
+                <option value="brasse">Brasse</option>
+                <option value="alterne">Alterné rapide/lent</option>
+                <option value="crawl">Crawl</option>
+                <option value="jambes">Jambes seules</option>
+              </select>
+            </label>
+          </div>
+
+          <p className="muted small">{seance.piscine.consigne}</p>
+          <div className="alert">
+            <strong>Règle épaule</strong>
+            <ul style={{ margin: "4px 0" }}>
+              {seance.piscine.reglesEpaule.map((r, i) => (
+                <li key={i}>{r}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      )}
+
       <button
         className="btn btn-primary btn-lg btn-finish"
         onClick={() => onFinish({ ...log, dateFin: new Date().toISOString(), statut: "terminee" })}

@@ -849,6 +849,15 @@ export const SEANCES_MAISON: Seance[] = [
     dominante: "Pectoraux, épaules, quadriceps, mollets · ~25 min",
     objectif:
       "Maintenir, pas progresser. Charge faible : va près de l'échec, 15-25 reps. Pour durcir avec une seule bande : écarte les pieds (pré-tension), double la bande, travaille à un bras ou une jambe, ralentis la descente à 3 secondes.",
+    piscine: {
+      consigne:
+        "Compté en allers-retours, jamais en minutes. Progression sur la semaine : 6 → 8 → 10 → 12 → 14. À partir du 3e jour, alterne 1 A/R rapide et 1 A/R lent : plus court, moins ennuyeux, et l'intensité agit mieux sur la graisse viscérale. Jours 4 et 6 : ajoute 10 sauts verticaux dans l'eau (l'immersion décharge la cheville droite).",
+      reglesEpaule: [
+        "2 allers-retours de crawl MAXIMUM au premier jour",
+        "La moindre gêne, pendant ou le lendemain → brasse uniquement pour toute la semaine",
+        "Tu n'as pas renagé depuis ta blessure : le crawl est le mouvement le plus exigeant pour une coiffe"
+      ]
+    },
     signauxArret: ["Douleur d'épaule sur le développé → stop, passe aux exercices de tirage"],
     exercices: [
       {
@@ -969,6 +978,15 @@ export const SEANCES_MAISON: Seance[] = [
     dominante: "Dos, ischios, fessiers, épaules · ~25 min",
     objectif:
       "Tirage et chaîne postérieure. Double la bande si 15 kg devient trop léger sur le rowing. Le band pull-apart est l'exercice le plus utile de la semaine pour ton épaule.",
+    piscine: {
+      consigne:
+        "Compté en allers-retours, jamais en minutes. Progression sur la semaine : 6 → 8 → 10 → 12 → 14. À partir du 3e jour, alterne 1 A/R rapide et 1 A/R lent : plus court, moins ennuyeux, et l'intensité agit mieux sur la graisse viscérale. Jours 4 et 6 : ajoute 10 sauts verticaux dans l'eau (l'immersion décharge la cheville droite).",
+      reglesEpaule: [
+        "2 allers-retours de crawl MAXIMUM au premier jour",
+        "La moindre gêne, pendant ou le lendemain → brasse uniquement pour toute la semaine",
+        "Tu n'as pas renagé depuis ta blessure : le crawl est le mouvement le plus exigeant pour une coiffe"
+      ]
+    },
     signauxArret: ["Douleur lombaire sur le soulevé unilatéral → réduire l'amplitude"],
     exercices: [
       {
@@ -1106,6 +1124,15 @@ export const SEANCES_MAISON: Seance[] = [
     dominante: "Épaule, cheville, doigts, gainage · ~20 min",
     objectif:
       "La séance la plus utile de la semaine : c'est exactement la routine que tu sautes systématiquement en fin de séance à la salle. Ici elle a vingt minutes pour elle seule.",
+    piscine: {
+      consigne:
+        "Compté en allers-retours, jamais en minutes. Progression sur la semaine : 6 → 8 → 10 → 12 → 14. À partir du 3e jour, alterne 1 A/R rapide et 1 A/R lent : plus court, moins ennuyeux, et l'intensité agit mieux sur la graisse viscérale. Jours 4 et 6 : ajoute 10 sauts verticaux dans l'eau (l'immersion décharge la cheville droite).",
+      reglesEpaule: [
+        "2 allers-retours de crawl MAXIMUM au premier jour",
+        "La moindre gêne, pendant ou le lendemain → brasse uniquement pour toute la semaine",
+        "Tu n'as pas renagé depuis ta blessure : le crawl est le mouvement le plus exigeant pour une coiffe"
+      ]
+    },
     signauxArret: ["Tout doit rester léger et indolore — aucun exercice ici ne se force"],
     exercices: [
       {
@@ -1217,84 +1244,6 @@ export const SEANCES_MAISON: Seance[] = [
     ]
   },
 
-  {
-    id: "M4",
-    lettre: "M4",
-    nom: "Piscine",
-    dominante: "Aérobie, épaule, cheville déchargée · 10-15 min",
-    objectif:
-      "Compté en allers-retours, jamais en minutes. Progression sur la semaine : 6 → 8 → 10 → 12 → 14. À partir du 3e jour, alterne 1 A/R rapide et 1 A/R lent : plus court, moins ennuyeux, et l'intensité agit mieux sur la graisse viscérale.",
-    signauxArret: [
-      "RÈGLE ÉPAULE : 2 allers-retours de crawl maximum au premier jour",
-      "La moindre gêne pendant ou le lendemain → brasse uniquement pour toute la semaine",
-      "Tu n'as pas renagé depuis ta blessure : le crawl est le mouvement le plus exigeant pour une coiffe"
-    ],
-    exercices: [
-      {
-        id: "m-echauffement-nage",
-        nom: "Échauffement — brasse tranquille",
-        mode: "duree",
-        series: 1,
-        dureeCibleSec: 300,
-        rpe: "Très facile",
-        reposSec: 30,
-        sansCharge: true,
-        variantes: [
-          { id: "m-brasse-echauf", rang: 1, nom: "Brasse, rythme conversationnel", contrainte: "aucune" }
-        ]
-      },
-      {
-        id: "m-allers-retours",
-        nom: "Allers-retours",
-        mode: "reps",
-        series: 1,
-        repsMin: 6,
-        repsMax: 14,
-        rpe: "Note le nombre d'A/R réalisés",
-        reposSec: 60,
-        sansCharge: true,
-        progression: "J1 : 6 · J2 : 8 · J3 : 10 · J4 : 10 · J5 : 12 · J6 : 12 · J7 : 14.",
-        variantes: [
-          {
-            id: "m-ar-brasse",
-            rang: 1,
-            nom: "Brasse",
-            contrainte: "faible",
-            note: "L'option par défaut tant que l'épaule n'a pas été testée."
-          },
-          {
-            id: "m-ar-alterne",
-            rang: 2,
-            nom: "Alterné : 1 A/R rapide / 1 A/R lent",
-            contrainte: "faible",
-            note: "À partir du 3e jour. Plus court et plus efficace."
-          },
-          {
-            id: "m-ar-crawl",
-            rang: 3,
-            nom: "Crawl",
-            contrainte: "élevée",
-            note: "2 A/R MAXIMUM au premier jour. Rotation interne répétée = le mouvement le plus agressif pour ta coiffe."
-          }
-        ]
-      },
-      {
-        id: "m-sauts-eau",
-        nom: "Sauts verticaux dans l'eau",
-        mode: "reps",
-        series: 1,
-        repsMin: 10,
-        repsMax: 10,
-        rpe: "Explosif",
-        reposSec: 60,
-        sansCharge: true,
-        adaptations: "Jours 4 et 6. L'immersion décharge la cheville droite et supprime l'impact.",
-        variantes: [
-          { id: "m-sauts-eau-std", rang: 1, nom: "Sauts verticaux, eau à la poitrine", contrainte: "aucune" }
-        ]
-      }
-    ]
-  }
 ];
 
 /** Toutes les séances confondues — pour les recherches par id (historique, charges). */
@@ -1304,7 +1253,12 @@ export function getSeances(mode: Mode): Seance[] {
   return mode === "maison" ? SEANCES_MAISON : SEANCES_SALLE;
 }
 
-export const ORDRE_MAISON: ReadonlyArray<string> = ["M1", "M4", "M2", "M3"];
+/** Une séance appartient-elle au mode Maison ? (les ids maison commencent par M) */
+export function estMaison(type: string): boolean {
+  return type.startsWith("M");
+}
+
+export const ORDRE_MAISON: ReadonlyArray<string> = ["M1", "M2", "M3"];
 
 export function getOrdre(mode: Mode): ReadonlyArray<string> {
   return mode === "maison" ? ORDRE_MAISON : ORDRE_SUGGESTION;

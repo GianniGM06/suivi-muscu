@@ -11,11 +11,11 @@ export function defaultData(): AppData {
         repo: "suivi-muscu",
         branch: "main",
         path: "data/suivi.json",
+        pathMaison: "data/suivi-maison.json",
         token: ""
       },
       theme: "auto",
-      son: true,
-      mode: "salle"
+      son: true
     },
     exerciseState: {},
     sessions: [],

@@ -18,6 +18,7 @@ export function SettingsScreen({
   const [repo, setRepo] = useState(g.repo);
   const [branch, setBranch] = useState(g.branch);
   const [path, setPath] = useState(g.path);
+  const [pathMaison, setPathMaison] = useState(g.pathMaison ?? "data/suivi-maison.json");
   const [token, setToken] = useState("");
   const [tokenSaisi, setTokenSaisi] = useState(false);
   const [copie, setCopie] = useState(false);
@@ -32,6 +33,7 @@ export function SettingsScreen({
         repo: repo.trim(),
         branch: branch.trim() || "main",
         path: path.trim() || "data/suivi.json",
+        pathMaison: pathMaison.trim() || "data/suivi-maison.json",
         token: token !== "" ? token.trim() : g.token
       }
     });
@@ -62,8 +64,11 @@ export function SettingsScreen({
         <label>Branche
           <input value={branch} onChange={(e) => setBranch(e.target.value)} autoCapitalize="none" />
         </label>
-        <label>Chemin du fichier
+        <label>Fichier — séances Salle
           <input value={path} onChange={(e) => setPath(e.target.value)} autoCapitalize="none" />
+        </label>
+        <label>Fichier — séances Maison
+          <input value={pathMaison} onChange={(e) => setPathMaison(e.target.value)} autoCapitalize="none" />
         </label>
         <label>Token {g.token && <span className="badge badge-ok">déjà enregistré ✓</span>}
           <input

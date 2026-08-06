@@ -1,13 +1,15 @@
 // ============================================================
-// FILTRE DE CONFIDENTIALITÉ
-// Seul le résultat de toSyncPayload() part vers GitHub (dépôt public).
-// Champs qui ne doivent JAMAIS sortir : geneEpaule, geneCheville, note,
-// token, settings, poids, tour de taille, e-mail, identifiants.
-// La liste CLES_INTERDITES est vérifiée par tests/filter.test.ts sur la
-// sérialisation JSON complète du payload.
+// FILTRE DE CONFIDENTIALITÉ + SÉPARATION SALLE / MAISON
+// Deux fichiers distincts sur GitHub :
+//   data/suivi.json         → séances SALLE (A-E)
+//   data/suivi-maison.json  → séances MAISON (M1-M3)
+// Champs qui ne doivent JAMAIS sortir : geneEpaule, geneCheville,
+// note, token, settings, poids, tour de taille, e-mail, identifiants.
+// Vérifié par tests/filter.test.ts sur la sérialisation complète.
 // ============================================================
 
-import type { AppData, SyncChargeRef, SyncPayload, SyncSession } from "../types";
+import type { AppData, Mode, SyncChargeRef, SyncPayload, SyncSession } from "../types";
+import { estMaison, getExercice, SEANCES_MAISON } from "../data/program";
 
 export const CLES_INTERDITES = [
   "geneEpaule",
@@ -22,9 +24,16 @@ export const CLES_INTERDITES = [
   "owner"
 ] as const;
 
-export function toSyncPayload(data: AppData): SyncPayload {
+/** Un exercice appartient-il au mode Maison ? */
+function exerciceMaison(exerciceId: string): boolean {
+  return SEANCES_MAISON.some((s) => s.exercices.some((e) => e.id === exerciceId));
+}
+
+export function toSyncPayload(data: AppData, mode: Mode = "salle"): SyncPayload {
+  const veutMaison = mode === "maison";
+
   const sessions: SyncSession[] = data.sessions
-    .filter((s) => s.statut === "terminee")
+    .filter((s) => s.statut === "terminee" && estMaison(s.type) === veutMaison)
     .map((s) => ({
       id: s.id,
       type: s.type,
@@ -33,6 +42,15 @@ export function toSyncPayload(data: AppData): SyncPayload {
       statut: s.statut,
       routineFaite: s.routineFaite,
       cardio: { fait: s.cardio.fait, dureeMin: s.cardio.dureeMin },
+      ...(s.piscine
+        ? {
+            piscine: {
+              fait: s.piscine.fait,
+              allersRetours: s.piscine.allersRetours,
+              nage: s.piscine.nage
+            }
+          }
+        : {}),
       rpeGlobal: s.rpeGlobal,
       exercices: s.exercices.map((e) => ({
         exerciceId: e.exerciceId,
@@ -50,6 +68,8 @@ export function toSyncPayload(data: AppData): SyncPayload {
 
   const chargesReference: SyncChargeRef[] = [];
   for (const [exerciceId, state] of Object.entries(data.exerciseState)) {
+    if (exerciceMaison(exerciceId) !== veutMaison) continue;
+    if (!getExercice(exerciceId)) continue; // exercice retiré du programme
     for (const [varianteId, v] of Object.entries(state.parVariante)) {
       chargesReference.push({
         exerciceId,
@@ -67,7 +87,8 @@ export function toSyncPayload(data: AppData): SyncPayload {
     exporteLe: new Date().toISOString(),
     sessions,
     chargesReference,
-    tests: data.tests.map((t) => ({ ...t }))
+    // Les tests de force ne concernent que la salle
+    tests: veutMaison ? [] : data.tests.map((t) => ({ ...t }))
   };
 }
 
