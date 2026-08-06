@@ -1,7 +1,7 @@
 {
   "app": "suivi-muscu",
   "schemaVersion": 1,
-  "exporteLe": "2026-08-05T14:03:48.690Z",
+  "exporteLe": "2026-08-06T13:38:19.930Z",
   "sessions": [
     {
       "id": "s-1785675406766",
@@ -535,6 +535,188 @@
           ]
         }
       ]
+    },
+    {
+      "id": "s-1786013648705",
+      "type": "E",
+      "dateDebut": "2026-08-06T10:54:08.705Z",
+      "dateFin": "2026-08-06T13:38:16.128Z",
+      "statut": "terminee",
+      "routineFaite": false,
+      "cardio": {
+        "fait": false
+      },
+      "exercices": [
+        {
+          "exerciceId": "rdl",
+          "varianteId": "rdl-halt",
+          "saute": true,
+          "series": [
+            {
+              "reps": 10,
+              "faite": false
+            },
+            {
+              "reps": 10,
+              "faite": false
+            },
+            {
+              "reps": 10,
+              "faite": false
+            },
+            {
+              "reps": 10,
+              "faite": false
+            }
+          ]
+        },
+        {
+          "exerciceId": "leg-curl",
+          "varianteId": "tg-legcurl",
+          "saute": false,
+          "series": [
+            {
+              "charge": 50,
+              "reps": 10,
+              "rpe": 7,
+              "faite": true
+            },
+            {
+              "charge": 50,
+              "reps": 10,
+              "rpe": 8,
+              "faite": true
+            },
+            {
+              "charge": 50,
+              "reps": 10,
+              "rpe": 8,
+              "faite": true
+            },
+            {
+              "charge": 50,
+              "reps": 10,
+              "rpe": 8,
+              "faite": true
+            }
+          ]
+        },
+        {
+          "exerciceId": "hip-thrust",
+          "varianteId": "hs-glute-e",
+          "saute": false,
+          "series": [
+            {
+              "charge": 80,
+              "reps": 10,
+              "rpe": 8,
+              "faite": true
+            },
+            {
+              "charge": 90,
+              "reps": 10,
+              "rpe": 8,
+              "faite": true
+            },
+            {
+              "reps": 12,
+              "faite": false
+            }
+          ]
+        },
+        {
+          "exerciceId": "fentes",
+          "varianteId": "fentes-halt",
+          "saute": false,
+          "series": [
+            {
+              "charge": 32,
+              "reps": 7,
+              "rpe": 8,
+              "faite": true
+            },
+            {
+              "charge": 32,
+              "reps": 7,
+              "rpe": 10,
+              "faite": true
+            },
+            {
+              "charge": 16,
+              "reps": 7,
+              "rpe": 8,
+              "faite": true
+            }
+          ]
+        },
+        {
+          "exerciceId": "mollets",
+          "varianteId": "calf-halt",
+          "saute": false,
+          "series": [
+            {
+              "charge": 16,
+              "reps": 30,
+              "rpe": 7,
+              "faite": true
+            },
+            {
+              "charge": 16,
+              "reps": 30,
+              "rpe": 7,
+              "faite": true
+            },
+            {
+              "charge": 16,
+              "reps": 30,
+              "rpe": 7,
+              "faite": true
+            },
+            {
+              "reps": 15,
+              "faite": false
+            }
+          ]
+        },
+        {
+          "exerciceId": "gainage",
+          "varianteId": "planche",
+          "saute": true,
+          "series": [
+            {
+              "dureeSec": 40,
+              "faite": false
+            },
+            {
+              "dureeSec": 40,
+              "faite": false
+            },
+            {
+              "dureeSec": 40,
+              "faite": false
+            }
+          ]
+        },
+        {
+          "exerciceId": "pallof",
+          "varianteId": "pallof-cable",
+          "saute": true,
+          "series": [
+            {
+              "reps": 12,
+              "faite": false
+            },
+            {
+              "reps": 12,
+              "faite": false
+            },
+            {
+              "reps": 12,
+              "faite": false
+            }
+          ]
+        }
+      ]
     }
   ],
   "chargesReference": [
@@ -718,6 +900,50 @@
         "valeur": 32,
         "unite": "kg",
         "date": "2026-08-05T14:03:44.209Z"
+      }
+    },
+    {
+      "exerciceId": "leg-curl",
+      "varianteId": "tg-legcurl",
+      "chargeReference": 50,
+      "derniereCharge": 50,
+      "meilleurePerf": {
+        "valeur": 50,
+        "unite": "kg",
+        "date": "2026-08-06T13:38:18.358Z"
+      }
+    },
+    {
+      "exerciceId": "hip-thrust",
+      "varianteId": "hs-glute-e",
+      "chargeReference": 90,
+      "derniereCharge": 90,
+      "meilleurePerf": {
+        "valeur": 90,
+        "unite": "kg",
+        "date": "2026-08-06T13:38:18.358Z"
+      }
+    },
+    {
+      "exerciceId": "fentes",
+      "varianteId": "fentes-halt",
+      "chargeReference": 32,
+      "derniereCharge": 32,
+      "meilleurePerf": {
+        "valeur": 32,
+        "unite": "kg",
+        "date": "2026-08-06T13:38:18.358Z"
+      }
+    },
+    {
+      "exerciceId": "mollets",
+      "varianteId": "calf-halt",
+      "chargeReference": 16,
+      "derniereCharge": 16,
+      "meilleurePerf": {
+        "valeur": 16,
+        "unite": "kg",
+        "date": "2026-08-06T13:38:18.358Z"
       }
     }
   ],
