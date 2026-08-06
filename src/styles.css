@@ -108,6 +108,31 @@ details.card summary { cursor: pointer; font-weight: 600; min-height: 28px; }
 .badge-ok { color: var(--ok); border-color: var(--ok); }
 .badge-warn { color: var(--warn); border-color: var(--warn); }
 .badge-err { color: var(--err); border-color: var(--err); }
+/* ==== Bascule Salle / Maison (discrète) ==== */
+.mode-switch {
+  display: flex;
+  gap: 4px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 3px;
+  margin: 0 auto 8px;
+  width: fit-content;
+}
+.mode-btn {
+  min-height: 34px;
+  padding: 4px 16px;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.mode-actif { background: var(--primary); color: #fff; }
+.mode-note { text-align: center; margin: 0 0 10px; }
+
 .suggestion { margin: 4px 0 12px; }
 .seance-list { display: flex; flex-direction: column; gap: 10px; }
 .seance-card { display: flex; align-items: center; gap: 14px; cursor: pointer; min-height: 76px; }

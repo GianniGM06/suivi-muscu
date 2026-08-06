@@ -14,7 +14,8 @@ export function defaultData(): AppData {
         token: ""
       },
       theme: "auto",
-      son: true
+      son: true,
+      mode: "salle"
     },
     exerciseState: {},
     sessions: [],

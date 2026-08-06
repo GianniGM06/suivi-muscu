@@ -1,5 +1,5 @@
-import { ORDRE_SUGGESTION, SEANCES } from "../data/program";
-import type { AppData, SeanceId } from "../types";
+import { getOrdre, getSeances } from "../data/program";
+import type { AppData, Mode, SeanceId } from "../types";
 import { nomSeance } from "../export/exports";
 
 function joursConsecutifsEntrainement(data: AppData): number {
@@ -19,23 +19,30 @@ function joursConsecutifsEntrainement(data: AppData): number {
 export function Home({
   data,
   onStart,
-  onNav
+  onNav,
+  onChangeMode
 }: {
   data: AppData;
   onStart: (id: SeanceId) => void;
   onNav: (v: "suivi" | "reglages") => void;
+  onChangeMode: (m: Mode) => void;
 }) {
-  const terminees = data.sessions.filter((s) => s.statut === "terminee");
-  const derniere = terminees[terminees.length - 1];
-  const suggestion: SeanceId = derniere
-    ? (ORDRE_SUGGESTION[
-        (ORDRE_SUGGESTION.indexOf(derniere.type) + 1) % ORDRE_SUGGESTION.length
-      ] as SeanceId)
-    : "A";
+  const mode = data.settings.mode;
+  const seances = getSeances(mode);
+  const ordre = getOrdre(mode);
 
+  const terminees = data.sessions.filter((s) => s.statut === "terminee");
+  // La suggestion se base sur la dernière séance du mode courant
+  const derniereDuMode = [...terminees].reverse().find((s) => ordre.includes(s.type));
+  const suggestion: SeanceId = derniereDuMode
+    ? (ordre[(ordre.indexOf(derniereDuMode.type) + 1) % ordre.length] as SeanceId)
+    : (ordre[0] as SeanceId);
+
+  const derniere = terminees[terminees.length - 1];
   const joursConsec = joursConsecutifsEntrainement(data);
-  const avertJours = joursConsec >= 2;
+  const avertJours = mode === "salle" && joursConsec >= 2;
   const avertBE = (id: SeanceId) =>
+    mode === "salle" &&
     derniere !== undefined &&
     ((derniere.type === "B" && id === "E") || (derniere.type === "E" && id === "B"));
 
@@ -59,6 +66,27 @@ export function Home({
         <div className={`badge ${syncBadge.cls}`}>{syncBadge.txt}</div>
       </header>
 
+      <div className="mode-switch" role="group" aria-label="Mode d'entraînement">
+        <button
+          className={`mode-btn ${mode === "salle" ? "mode-actif" : ""}`}
+          onClick={() => onChangeMode("salle")}
+        >
+          🏋️ Salle
+        </button>
+        <button
+          className={`mode-btn ${mode === "maison" ? "mode-actif" : ""}`}
+          onClick={() => onChangeMode("maison")}
+        >
+          🏠 Maison
+        </button>
+      </div>
+
+      {mode === "maison" && (
+        <p className="muted small mode-note">
+          Élastique 15 kg, piscine et poids du corps. Charge faible : va près de l'échec, 15-25 reps.
+        </p>
+      )}
+
       {data.draft && (
         <button className="card card-resume" onClick={() => onStart(data.draft!.type)}>
           ▶ Reprendre la séance {nomSeance(data.draft.type)} en cours
@@ -67,9 +95,9 @@ export function Home({
 
       <p className="suggestion">
         Suggestion : <strong>{nomSeance(suggestion)}</strong>
-        {derniere && <span className="muted"> (dernière : {nomSeance(derniere.type)})</span>}
+        {derniereDuMode && <span className="muted"> (dernière : {nomSeance(derniereDuMode.type)})</span>}
         <br />
-        <span className="muted">Ordre indicatif A→E — choix libre.</span>
+        <span className="muted">Ordre indicatif — choix libre.</span>
       </p>
 
       {avertJours && (
@@ -80,7 +108,7 @@ export function Home({
       )}
 
       <div className="seance-list">
-        {SEANCES.map((s) => (
+        {seances.map((s) => (
           <button
             key={s.id}
             className={`card seance-card ${s.id === suggestion ? "seance-suggeree" : ""}`}

@@ -68,7 +68,9 @@ export interface Seance {
   signauxArret: string[];
 }
 
-export type SeanceId = "A" | "B" | "C" | "D" | "E";
+export type SeanceId = "A" | "B" | "C" | "D" | "E" | "M1" | "M2" | "M3" | "M4";
+
+export type Mode = "salle" | "maison";
 
 export interface TestDef {
   id: string;
@@ -150,6 +152,7 @@ export interface Settings {
   github: GithubConfig;
   theme: "auto" | "clair" | "sombre";
   son: boolean; // bip de fin de chrono (casque Bluetooth inclus)
+  mode: Mode; // "salle" (programme v4) ou "maison" (élastiques + piscine)
 }
 
 export type SyncStatut = "jamais" | "ok" | "erreur" | "local-modifie";

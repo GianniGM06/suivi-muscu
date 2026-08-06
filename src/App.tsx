@@ -151,7 +151,14 @@ export default function App() {
   return (
     <>
       {vue.nom === "home" && (
-        <Home data={data} onStart={(id) => setVue({ nom: "session", seanceId: id })} onNav={(v) => setVue({ nom: v === "suivi" ? "suivi" : "reglages" })} />
+        <Home
+          data={data}
+          onStart={(id) => setVue({ nom: "session", seanceId: id })}
+          onNav={(v) => setVue({ nom: v === "suivi" ? "suivi" : "reglages" })}
+          onChangeMode={(mode) =>
+            setData((d) => ({ ...d, settings: { ...d.settings, mode } }))
+          }
+        />
       )}
       {vue.nom === "session" && (
         <SessionScreen

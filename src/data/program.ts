@@ -8,7 +8,7 @@
 // (les charges de référence y sont rattachées).
 // ============================================================
 
-import type { Routine, Seance, TestDef } from "../types";
+import type { Mode, Routine, Seance, TestDef } from "../types";
 
 export const INTERDITS_BLOC = [
   "Tout mouvement derrière la nuque (épaule droite non rééduquée)",
@@ -91,7 +91,7 @@ export const ROUTINES: Routine[] = [
   }
 ];
 
-export const SEANCES: Seance[] = [
+export const SEANCES_SALLE: Seance[] = [
   // ============================ A — PUSH ============================
   {
     id: "A",
@@ -833,6 +833,482 @@ export const SEANCES: Seance[] = [
     cardio: undefined
   }
 ];
+
+// ============================================================
+// MODE MAISON — vacances sans salle
+// Matériel : une power band 15 kg · piscine · poids du corps
+// Charge faible → le stimulus vient de l'effort : 15-25 reps,
+// dernière série à l'échec. Aucun champ de charge (sansCharge).
+// ============================================================
+
+export const SEANCES_MAISON: Seance[] = [
+  {
+    id: "M1",
+    lettre: "M1",
+    nom: "Élastiques A — Poussée & jambes",
+    dominante: "Pectoraux, épaules, quadriceps, mollets · ~25 min",
+    objectif:
+      "Maintenir, pas progresser. Charge faible : va près de l'échec, 15-25 reps. Pour durcir avec une seule bande : écarte les pieds (pré-tension), double la bande, travaille à un bras ou une jambe, ralentis la descente à 3 secondes.",
+    signauxArret: ["Douleur d'épaule sur le développé → stop, passe aux exercices de tirage"],
+    exercices: [
+      {
+        id: "m-pompes",
+        nom: "Pompes (descente en 3 s)",
+        mode: "reps",
+        series: 3,
+        repsMin: 8,
+        repsMax: 25,
+        rpe: "Jusqu'à l'échec",
+        reposSec: 60,
+        sansCharge: true,
+        progression: "Trop facile → pieds surélevés. Trop dur → mains surélevées.",
+        variantes: [
+          { id: "m-pompes-std", rang: 1, nom: "Pompes au sol, coudes à 45°", contrainte: "faible" },
+          { id: "m-pompes-haut", rang: 2, nom: "Mains surélevées (table, muret)", contrainte: "faible" },
+          { id: "m-pompes-pieds", rang: 3, nom: "Pieds surélevés", contrainte: "modérée" }
+        ]
+      },
+      {
+        id: "m-fentes",
+        nom: "Fentes arrière",
+        mode: "reps",
+        series: 3,
+        repsMin: 12,
+        repsMax: 15,
+        rpe: "1-2 reps en réserve",
+        reposSec: 60,
+        sansCharge: true,
+        parCote: true,
+        progression: "Tempo lent et pause d'1 s en bas plutôt que d'ajouter de la charge.",
+        variantes: [
+          { id: "m-fentes-std", rang: 1, nom: "Fentes arrière alternées", contrainte: "aucune" },
+          { id: "m-fentes-bulg", rang: 2, nom: "Fentes bulgares (pied arrière surélevé)", contrainte: "aucune" }
+        ]
+      },
+      {
+        id: "m-dev-epaules",
+        nom: "Développé épaules élastique (devant)",
+        mode: "reps",
+        series: 3,
+        repsMin: 15,
+        repsMax: 20,
+        rpe: "1-2 reps en réserve",
+        reposSec: 60,
+        sansCharge: true,
+        adaptations: "Jamais derrière la tête. Écarte les pieds pour durcir.",
+        variantes: [
+          { id: "m-dev-band", rang: 1, nom: "Bande sous les pieds, poussée verticale devant", materiel: "Power band 15 kg", contrainte: "modérée" }
+        ]
+      },
+      {
+        id: "m-squat-saute",
+        nom: "Squats sautés (puissance)",
+        mode: "reps",
+        series: 3,
+        repsMin: 8,
+        repsMax: 8,
+        rpe: "Explosif, jamais à l'échec",
+        reposSec: 90,
+        sansCharge: true,
+        adaptations: "Réception amortie et silencieuse. Douleur cheville → supprimer.",
+        variantes: [
+          { id: "m-squat-saute-std", rang: 1, nom: "Squat sauté, réception amortie", contrainte: "aucune" }
+        ]
+      },
+      {
+        id: "m-elev-lat",
+        nom: "Élévations latérales élastique",
+        mode: "reps",
+        series: 3,
+        repsMin: 20,
+        repsMax: 20,
+        rpe: "Échec autorisé",
+        reposSec: 60,
+        sansCharge: true,
+        variantes: [
+          { id: "m-elev-band", rang: 1, nom: "Bande sous un pied, un bras à la fois", materiel: "Power band 15 kg", contrainte: "faible" }
+        ]
+      },
+      {
+        id: "m-triceps",
+        nom: "Triceps kickback élastique",
+        mode: "reps",
+        series: 3,
+        repsMin: 20,
+        repsMax: 20,
+        rpe: "Échec autorisé",
+        reposSec: 60,
+        sansCharge: true,
+        parCote: true,
+        variantes: [
+          { id: "m-kickback", rang: 1, nom: "Buste penché, coude fixe", materiel: "Power band 15 kg", contrainte: "faible" }
+        ]
+      },
+      {
+        id: "m-mollets",
+        nom: "Mollets unilatéral",
+        mode: "reps",
+        series: 3,
+        repsMin: 20,
+        repsMax: 20,
+        rpe: "Échec autorisé",
+        reposSec: 45,
+        sansCharge: true,
+        parCote: true,
+        variantes: [
+          { id: "m-mollets-std", rang: 1, nom: "Sur une jambe, amplitude complète (marche si possible)", contrainte: "aucune" }
+        ]
+      }
+    ]
+  },
+
+  {
+    id: "M2",
+    lettre: "M2",
+    nom: "Élastiques B — Tirage & chaîne postérieure",
+    dominante: "Dos, ischios, fessiers, épaules · ~25 min",
+    objectif:
+      "Tirage et chaîne postérieure. Double la bande si 15 kg devient trop léger sur le rowing. Le band pull-apart est l'exercice le plus utile de la semaine pour ton épaule.",
+    signauxArret: ["Douleur lombaire sur le soulevé unilatéral → réduire l'amplitude"],
+    exercices: [
+      {
+        id: "m-rowing",
+        nom: "Rowing assis élastique",
+        mode: "reps",
+        series: 3,
+        repsMin: 15,
+        repsMax: 20,
+        rpe: "1-2 reps en réserve",
+        reposSec: 60,
+        sansCharge: true,
+        progression: "Trop léger → double la bande.",
+        variantes: [
+          { id: "m-rowing-sol", rang: 1, nom: "Assis au sol, bande autour des pieds", materiel: "Power band 15 kg", contrainte: "faible" }
+        ]
+      },
+      {
+        id: "m-rdl-uni",
+        nom: "Soulevé de terre roumain unilatéral",
+        mode: "reps",
+        series: 3,
+        repsMin: 12,
+        repsMax: 12,
+        rpe: "2-3 reps en réserve",
+        reposSec: 60,
+        sansCharge: true,
+        parCote: true,
+        adaptations: "Dos plat, charnière de hanche. La charge élastique est trop faible pour être risquée.",
+        variantes: [
+          { id: "m-rdl-band", rang: 1, nom: "Bande sous le pied d'appui, jambe libre tendue en arrière", materiel: "Power band 15 kg", contrainte: "faible" }
+        ]
+      },
+      {
+        id: "m-tirage",
+        nom: "Tirage vertical élastique",
+        mode: "reps",
+        series: 3,
+        repsMin: 15,
+        repsMax: 20,
+        rpe: "1-2 reps en réserve",
+        reposSec: 60,
+        sansCharge: true,
+        variantes: [
+          {
+            id: "m-tirage-ancrage",
+            rang: 1,
+            nom: "Bande fixée en hauteur, à genoux",
+            materiel: "Power band + point d'ancrage",
+            contrainte: "faible",
+            note: "Nécessite un ancrage (porte, rambarde, branche)."
+          },
+          {
+            id: "m-pullover-sol",
+            rang: 2,
+            nom: "Pull-over au sol (SANS ancrage)",
+            materiel: "Power band 15 kg",
+            contrainte: "faible",
+            note: "Allongé, bande sous les fesses, bras semi-tendus qui montent au-dessus de la tête."
+          }
+        ]
+      },
+      {
+        id: "m-pull-apart",
+        nom: "Band pull-apart",
+        mode: "reps",
+        series: 3,
+        repsMin: 20,
+        repsMax: 20,
+        rpe: "1-2 reps en réserve",
+        reposSec: 45,
+        sansCharge: true,
+        variantes: [
+          {
+            id: "m-pull-apart-std",
+            rang: 1,
+            nom: "Bras tendus devant, écartement contrôlé",
+            materiel: "Power band 15 kg",
+            contrainte: "faible",
+            note: "L'exercice le plus utile de la semaine pour ton épaule droite."
+          }
+        ]
+      },
+      {
+        id: "m-curl",
+        nom: "Curl élastique",
+        mode: "reps",
+        series: 3,
+        repsMin: 20,
+        repsMax: 20,
+        rpe: "Échec autorisé",
+        reposSec: 60,
+        sansCharge: true,
+        variantes: [
+          { id: "m-curl-band", rang: 1, nom: "Bande sous les pieds (un bras à la fois pour durcir)", materiel: "Power band 15 kg", contrainte: "faible" }
+        ]
+      },
+      {
+        id: "m-pont-fessier",
+        nom: "Pont fessier unilatéral",
+        mode: "reps",
+        series: 3,
+        repsMin: 15,
+        repsMax: 15,
+        rpe: "1-2 reps en réserve",
+        reposSec: 60,
+        sansCharge: true,
+        parCote: true,
+        variantes: [
+          { id: "m-pont-uni", rang: 1, nom: "Un pied au sol, l'autre jambe tendue vers le haut", contrainte: "aucune" }
+        ]
+      },
+      {
+        id: "m-abduction",
+        nom: "Abduction hanche élastique",
+        mode: "reps",
+        series: 3,
+        repsMin: 15,
+        repsMax: 15,
+        rpe: "1-2 reps en réserve",
+        reposSec: 45,
+        sansCharge: true,
+        parCote: true,
+        variantes: [
+          { id: "m-abduction-band", rang: 1, nom: "Bande aux chevilles, debout", materiel: "Power band 15 kg", contrainte: "aucune" }
+        ]
+      }
+    ]
+  },
+
+  {
+    id: "M3",
+    lettre: "M3",
+    nom: "Mobilité & prévention",
+    dominante: "Épaule, cheville, doigts, gainage · ~20 min",
+    objectif:
+      "La séance la plus utile de la semaine : c'est exactement la routine que tu sautes systématiquement en fin de séance à la salle. Ici elle a vingt minutes pour elle seule.",
+    signauxArret: ["Tout doit rester léger et indolore — aucun exercice ici ne se force"],
+    exercices: [
+      {
+        id: "m-rot-ext",
+        nom: "Rotations externes coude au corps",
+        mode: "reps",
+        series: 3,
+        repsMin: 15,
+        repsMax: 15,
+        rpe: "Léger",
+        reposSec: 30,
+        sansCharge: true,
+        parCote: true,
+        variantes: [
+          { id: "m-rot-band", rang: 1, nom: "Bande tenue à deux mains, coude collé au corps", materiel: "Power band 15 kg", contrainte: "faible" }
+        ]
+      },
+      {
+        id: "m-pull-apart-3",
+        nom: "Band pull-apart",
+        mode: "reps",
+        series: 3,
+        repsMin: 20,
+        repsMax: 20,
+        rpe: "Léger",
+        reposSec: 30,
+        sansCharge: true,
+        variantes: [
+          { id: "m-pull-apart-3-std", rang: 1, nom: "Bras tendus devant", materiel: "Power band 15 kg", contrainte: "faible" }
+        ]
+      },
+      {
+        id: "m-scaption",
+        nom: "Scaption (bras en Y, pouces vers le haut)",
+        mode: "reps",
+        series: 3,
+        repsMin: 12,
+        repsMax: 12,
+        rpe: "Léger, contrôle total",
+        reposSec: 30,
+        sansCharge: true,
+        variantes: [
+          { id: "m-scaption-std", rang: 1, nom: "Poids du corps ou bande très légère", contrainte: "faible" }
+        ]
+      },
+      {
+        id: "m-equilibre",
+        nom: "Équilibre unipodal droit, yeux fermés",
+        mode: "duree",
+        series: 3,
+        dureeCibleSec: 45,
+        rpe: "—",
+        reposSec: 30,
+        sansCharge: true,
+        progression: "Yeux ouverts d'abord si c'est trop instable.",
+        variantes: [
+          { id: "m-equilibre-std", rang: 1, nom: "Sur la jambe droite", contrainte: "aucune" }
+        ]
+      },
+      {
+        id: "m-sautillements",
+        nom: "Sautillements bas puis latéraux",
+        mode: "reps",
+        series: 3,
+        repsMin: 15,
+        repsMax: 15,
+        rpe: "Réceptions silencieuses",
+        reposSec: 45,
+        sansCharge: true,
+        variantes: [
+          { id: "m-sautillements-std", rang: 1, nom: "Sur place, puis d'un côté à l'autre", contrainte: "aucune" }
+        ]
+      },
+      {
+        id: "m-extenseurs",
+        nom: "Extension des doigts contre élastique",
+        mode: "reps",
+        series: 3,
+        repsMin: 20,
+        repsMax: 20,
+        rpe: "Léger",
+        reposSec: 30,
+        sansCharge: true,
+        variantes: [
+          {
+            id: "m-extenseurs-std",
+            rang: 1,
+            nom: "Ouverture de la main contre résistance",
+            materiel: "Petit élastique",
+            contrainte: "aucune",
+            note: "Prévention de l'épitrochléite avant la reprise de l'escalade."
+          }
+        ]
+      },
+      {
+        id: "m-planche",
+        nom: "Planche + planche latérale",
+        mode: "duree",
+        series: 3,
+        dureeCibleSec: 45,
+        rpe: "—",
+        reposSec: 45,
+        sansCharge: true,
+        progression: "Puis 30 s de planche latérale de chaque côté.",
+        variantes: [
+          { id: "m-planche-std", rang: 1, nom: "Gainage ventral puis latéral", contrainte: "aucune" }
+        ]
+      }
+    ]
+  },
+
+  {
+    id: "M4",
+    lettre: "M4",
+    nom: "Piscine",
+    dominante: "Aérobie, épaule, cheville déchargée · 10-15 min",
+    objectif:
+      "Compté en allers-retours, jamais en minutes. Progression sur la semaine : 6 → 8 → 10 → 12 → 14. À partir du 3e jour, alterne 1 A/R rapide et 1 A/R lent : plus court, moins ennuyeux, et l'intensité agit mieux sur la graisse viscérale.",
+    signauxArret: [
+      "RÈGLE ÉPAULE : 2 allers-retours de crawl maximum au premier jour",
+      "La moindre gêne pendant ou le lendemain → brasse uniquement pour toute la semaine",
+      "Tu n'as pas renagé depuis ta blessure : le crawl est le mouvement le plus exigeant pour une coiffe"
+    ],
+    exercices: [
+      {
+        id: "m-echauffement-nage",
+        nom: "Échauffement — brasse tranquille",
+        mode: "duree",
+        series: 1,
+        dureeCibleSec: 300,
+        rpe: "Très facile",
+        reposSec: 30,
+        sansCharge: true,
+        variantes: [
+          { id: "m-brasse-echauf", rang: 1, nom: "Brasse, rythme conversationnel", contrainte: "aucune" }
+        ]
+      },
+      {
+        id: "m-allers-retours",
+        nom: "Allers-retours",
+        mode: "reps",
+        series: 1,
+        repsMin: 6,
+        repsMax: 14,
+        rpe: "Note le nombre d'A/R réalisés",
+        reposSec: 60,
+        sansCharge: true,
+        progression: "J1 : 6 · J2 : 8 · J3 : 10 · J4 : 10 · J5 : 12 · J6 : 12 · J7 : 14.",
+        variantes: [
+          {
+            id: "m-ar-brasse",
+            rang: 1,
+            nom: "Brasse",
+            contrainte: "faible",
+            note: "L'option par défaut tant que l'épaule n'a pas été testée."
+          },
+          {
+            id: "m-ar-alterne",
+            rang: 2,
+            nom: "Alterné : 1 A/R rapide / 1 A/R lent",
+            contrainte: "faible",
+            note: "À partir du 3e jour. Plus court et plus efficace."
+          },
+          {
+            id: "m-ar-crawl",
+            rang: 3,
+            nom: "Crawl",
+            contrainte: "élevée",
+            note: "2 A/R MAXIMUM au premier jour. Rotation interne répétée = le mouvement le plus agressif pour ta coiffe."
+          }
+        ]
+      },
+      {
+        id: "m-sauts-eau",
+        nom: "Sauts verticaux dans l'eau",
+        mode: "reps",
+        series: 1,
+        repsMin: 10,
+        repsMax: 10,
+        rpe: "Explosif",
+        reposSec: 60,
+        sansCharge: true,
+        adaptations: "Jours 4 et 6. L'immersion décharge la cheville droite et supprime l'impact.",
+        variantes: [
+          { id: "m-sauts-eau-std", rang: 1, nom: "Sauts verticaux, eau à la poitrine", contrainte: "aucune" }
+        ]
+      }
+    ]
+  }
+];
+
+/** Toutes les séances confondues — pour les recherches par id (historique, charges). */
+export const SEANCES: Seance[] = [...SEANCES_SALLE, ...SEANCES_MAISON];
+
+export function getSeances(mode: Mode): Seance[] {
+  return mode === "maison" ? SEANCES_MAISON : SEANCES_SALLE;
+}
+
+export const ORDRE_MAISON: ReadonlyArray<string> = ["M1", "M4", "M2", "M3"];
+
+export function getOrdre(mode: Mode): ReadonlyArray<string> {
+  return mode === "maison" ? ORDRE_MAISON : ORDRE_SUGGESTION;
+}
 
 export const TESTS: TestDef[] = [
   { id: "test-presse", nom: "Presse à cuisses", protocole: "Charge fixe, max de reps propres (RPE 9)", unite: "reps", chargeFixe: true },
