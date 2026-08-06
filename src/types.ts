@@ -64,7 +64,7 @@ export interface Seance {
   routineId?: string;
   routinePosition?: "debut" | "fin";
   exercices: Exercice[];
-  cardio: Cardio;
+  cardio?: Cardio; // absent depuis la v4 : le cardio se fait hors salle
   signauxArret: string[];
 }
 
@@ -98,8 +98,9 @@ export interface ExoLog {
 export interface SessionRecord {
   id: string;
   type: SeanceId;
-  dateDebut: string; // ISO
+  dateDebut: string; // ISO — fixée au clic sur « Commencer la séance »
   dateFin?: string;
+  demarree?: boolean; // false tant que « Commencer » n'a pas été pressé
   statut: "en-cours" | "terminee";
   exercices: ExoLog[];
   routineFaite: boolean;
@@ -148,6 +149,7 @@ export interface GithubConfig {
 export interface Settings {
   github: GithubConfig;
   theme: "auto" | "clair" | "sombre";
+  son: boolean; // bip de fin de chrono (casque Bluetooth inclus)
 }
 
 export type SyncStatut = "jamais" | "ok" | "erreur" | "local-modifie";

@@ -143,6 +143,11 @@ details.card summary { cursor: pointer; font-weight: 600; min-height: 28px; }
 .progress-fill { height: 100%; background: var(--primary); transition: width 0.3s; }
 .exo-card { padding: 10px 14px; }
 .exo-saute { opacity: 0.55; }
+.exo-fait {
+  border-color: var(--ok);
+  background: color-mix(in srgb, var(--ok) 8%, var(--card));
+}
+.exo-fait .exo-nom::after { content: " ✓"; color: var(--ok); }
 .exo-head {
   width: 100%; background: none; border: none; color: inherit; font: inherit;
   display: flex; justify-content: space-between; align-items: flex-start; gap: 8px;
@@ -266,6 +271,9 @@ label input, select {
 }
 .form-row { display: flex; gap: 8px; align-items: center; margin: 8px 0; }
 .form-row input, .form-row select { flex: 1; }
+
+/* ==== Bouton Commencer ==== */
+.btn-start { margin-bottom: 12px; }
 
 /* ==== FAB sync ==== */
 .fab-sync {

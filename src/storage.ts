@@ -13,7 +13,8 @@ export function defaultData(): AppData {
         path: "data/suivi.json",
         token: ""
       },
-      theme: "auto"
+      theme: "auto",
+      son: true
     },
     exerciseState: {},
     sessions: [],

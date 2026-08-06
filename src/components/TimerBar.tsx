@@ -1,6 +1,20 @@
+import { useEffect, useRef } from "react";
 import type { TimerApi } from "../hooks/useTimer";
+import { jouerFinChrono } from "../sound";
 
-export function TimerBar({ timer }: { timer: TimerApi }) {
+export function TimerBar({ timer, son }: { timer: TimerApi; son: boolean }) {
+  const dejaSonne = useRef<string | null>(null);
+  const finished = timer.state?.finished ?? false;
+  const label = timer.state?.label ?? "";
+
+  useEffect(() => {
+    if (finished && son && dejaSonne.current !== label) {
+      dejaSonne.current = label;
+      jouerFinChrono();
+    }
+    if (!finished) dejaSonne.current = null;
+  }, [finished, son, label]);
+
   if (!timer.state) return null;
   const { state, remaining } = timer;
   const min = Math.floor(remaining / 60);

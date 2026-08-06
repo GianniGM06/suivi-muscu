@@ -7,6 +7,7 @@ import { SettingsScreen } from "./components/SettingsScreen";
 import { TimerBar } from "./components/TimerBar";
 import { useTimer } from "./hooks/useTimer";
 import { loadData, requestPersistentStorage, saveData } from "./storage";
+import { initSound } from "./sound";
 import { chargerDepuisGithub, sauvegarderSurGithub } from "./sync/github";
 import { exportJsonComplet } from "./export/exports";
 import type { AppData, SeanceId, SessionRecord, Settings } from "./types";
@@ -27,6 +28,14 @@ export default function App() {
 
   useEffect(() => {
     requestPersistentStorage();
+    // iOS exige un geste utilisateur pour débloquer l'audio
+    const unlock = () => {
+      initSound();
+      document.removeEventListener("touchstart", unlock);
+      document.removeEventListener("click", unlock);
+    };
+    document.addEventListener("touchstart", unlock, { once: true });
+    document.addEventListener("click", unlock, { once: true });
   }, []);
 
   useEffect(() => {
@@ -214,7 +223,7 @@ export default function App() {
         </div>
       )}
 
-      <TimerBar timer={timer} />
+      <TimerBar timer={timer} son={data.settings.son} />
     </>
   );
 }

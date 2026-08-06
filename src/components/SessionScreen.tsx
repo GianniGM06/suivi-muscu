@@ -22,7 +22,8 @@ function nouveauLog(seanceId: SeanceId, data: AppData): SessionRecord {
   return {
     id: `s-${Date.now()}`,
     type: seanceId,
-    dateDebut: new Date().toISOString(),
+    dateDebut: new Date().toISOString(), // re-fixée au clic sur « Commencer »
+    demarree: false,
     statut: "en-cours",
     exercices,
     routineFaite: false,
@@ -79,6 +80,16 @@ export function SessionScreen({
         </h1>
       </header>
 
+      {!log.demarree && (
+        <button
+          className="btn btn-primary btn-lg btn-start"
+          onClick={() => maj({ ...log, demarree: true, dateDebut: new Date().toISOString() })}
+        >
+          ▶ Commencer la séance
+          <span className="btn-sub">Le chrono de durée démarre maintenant</span>
+        </button>
+      )}
+
       <div className="progress-wrap">
         <div className="progress-bar">
           <div className="progress-fill" style={{ width: `${totalSeries ? (seriesFaites / totalSeries) * 100 : 0}%` }} />
@@ -105,8 +116,12 @@ export function SessionScreen({
         const variante = exo.variantes.find((v) => v.id === exoLog.varianteId) ?? exo.variantes[0];
         const st = data.exerciseState[exo.id]?.parVariante[exoLog.varianteId];
         const ouvert = exoOuvert === exo.id;
+        const exoFait = !exoLog.saute && exoLog.series.length > 0 && exoLog.series.every((s) => s.faite);
         return (
-          <div key={exo.id} className={`card exo-card ${exoLog.saute ? "exo-saute" : ""}`}>
+          <div
+            key={exo.id}
+            className={`card exo-card ${exoLog.saute ? "exo-saute" : ""} ${exoFait ? "exo-fait" : ""}`}
+          >
             <button className="exo-head" onClick={() => setExoOuvert(ouvert ? null : exo.id)}>
               <div>
                 {exo.superset && <span className="superset-tag">{exo.superset}</span>}
@@ -235,25 +250,27 @@ export function SessionScreen({
         <RoutineBlock routineId={routine.id} timer={timer} fait={log.routineFaite} onFait={(f) => maj({ ...log, routineFaite: f })} />
       )}
 
-      <div className="card">
-        <div className="cardio-row">
-          <label className="check-label">
-            <input
-              type="checkbox"
-              checked={log.cardio.fait}
-              onChange={(e) => maj({ ...log, cardio: { ...log.cardio, fait: e.target.checked } })}
-            />
-            Cardio : marche {seance.cardio.pente} — {seance.cardio.dureeMin} min
-          </label>
-          <button
-            className="btn btn-sm btn-primary"
-            onClick={() => timer.start(`Cardio ${seance.cardio.pente}`, seance.cardio.dureeMin * 60, "exo")}
-          >
-            ▶ Démarrer
-          </button>
+      {seance.cardio && (
+        <div className="card">
+          <div className="cardio-row">
+            <label className="check-label">
+              <input
+                type="checkbox"
+                checked={log.cardio.fait}
+                onChange={(e) => maj({ ...log, cardio: { ...log.cardio, fait: e.target.checked } })}
+              />
+              Cardio : marche {seance.cardio.pente} — {seance.cardio.dureeMin} min
+            </label>
+            <button
+              className="btn btn-sm btn-primary"
+              onClick={() => timer.start(`Cardio ${seance.cardio!.pente}`, seance.cardio!.dureeMin * 60, "exo")}
+            >
+              ▶ Démarrer
+            </button>
+          </div>
+          {seance.cardio.note && <p className="muted small">{seance.cardio.note}</p>}
         </div>
-        {seance.cardio.note && <p className="muted small">{seance.cardio.note}</p>}
-      </div>
+      )}
 
       <button
         className="btn btn-primary btn-lg btn-finish"

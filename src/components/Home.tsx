@@ -28,7 +28,9 @@ export function Home({
   const terminees = data.sessions.filter((s) => s.statut === "terminee");
   const derniere = terminees[terminees.length - 1];
   const suggestion: SeanceId = derniere
-    ? (ORDRE_SUGGESTION[(ORDRE_SUGGESTION.indexOf(derniere.type) + 1) % 5] as SeanceId)
+    ? (ORDRE_SUGGESTION[
+        (ORDRE_SUGGESTION.indexOf(derniere.type) + 1) % ORDRE_SUGGESTION.length
+      ] as SeanceId)
     : "A";
 
   const joursConsec = joursConsecutifsEntrainement(data);

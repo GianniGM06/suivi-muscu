@@ -80,6 +80,22 @@ export function SettingsScreen({
       </div>
 
       <div className="card">
+        <h3>Son</h3>
+        <label className="check-label">
+          <input
+            type="checkbox"
+            checked={data.settings.son}
+            onChange={(e) => onMajSettings({ ...data.settings, son: e.target.checked })}
+          />
+          Bip de fin de chrono (sort dans le casque Bluetooth si connecté)
+        </label>
+        <p className="muted small">
+          Fonctionne quand l'app est à l'écran. Écran verrouillé, iOS suspend l'app : ni son ni
+          vibration possibles — le temps restant reste juste au retour.
+        </p>
+      </div>
+
+      <div className="card">
         <h3>Thème</h3>
         <div className="form-row">
           {(["auto", "clair", "sombre"] as const).map((t) => (
