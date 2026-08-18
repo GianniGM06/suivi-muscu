@@ -1,300 +1,165 @@
 {
   "app": "suivi-muscu",
   "schemaVersion": 1,
-  "exporteLe": "2026-08-06T13:39:09.370Z",
+  "exporteLe": "2026-08-18T15:06:43.284Z",
   "sessions": [
     {
-      "id": "s-1785675406766",
-      "type": "B",
-      "dateDebut": "2026-08-02T12:56:46.766Z",
-      "dateFin": "2026-08-02T13:49:37.064Z",
+      "id": "s-1786106117230",
+      "type": "A",
+      "dateDebut": "2026-08-07T12:39:21.860Z",
+      "dateFin": "2026-08-07T13:26:08.768Z",
       "statut": "terminee",
       "routineFaite": true,
       "cardio": {
-        "fait": true
-      },
-      "rpeGlobal": 9,
-      "exercices": [
-        {
-          "exerciceId": "cmj",
-          "varianteId": "cmj-std",
-          "saute": false,
-          "series": [
-            {
-              "reps": 3,
-              "rpe": 3,
-              "faite": true
-            },
-            {
-              "reps": 3,
-              "rpe": 3,
-              "faite": true
-            },
-            {
-              "reps": 3,
-              "rpe": 3,
-              "faite": true
-            }
-          ]
-        },
-        {
-          "exerciceId": "box-jump",
-          "varianteId": "box-std",
-          "saute": false,
-          "series": [
-            {
-              "reps": 3,
-              "rpe": 5,
-              "faite": true
-            },
-            {
-              "reps": 3,
-              "rpe": 5,
-              "faite": true
-            },
-            {
-              "reps": 3,
-              "rpe": 5,
-              "faite": true
-            }
-          ]
-        },
-        {
-          "exerciceId": "presse",
-          "varianteId": "tg-legpress",
-          "saute": false,
-          "series": [
-            {
-              "charge": 200,
-              "reps": 8,
-              "rpe": 8,
-              "faite": true
-            },
-            {
-              "charge": 200,
-              "reps": 8,
-              "rpe": 7,
-              "faite": true
-            },
-            {
-              "reps": 8,
-              "rpe": 8,
-              "faite": true
-            },
-            {
-              "reps": 8,
-              "rpe": 8,
-              "faite": true
-            }
-          ]
-        },
-        {
-          "exerciceId": "quad-uni",
-          "varianteId": "tg-legext",
-          "saute": false,
-          "series": [
-            {
-              "charge": 30,
-              "reps": 10,
-              "rpe": 8,
-              "faite": true
-            },
-            {
-              "charge": 30,
-              "reps": 10,
-              "rpe": 9,
-              "faite": true
-            },
-            {
-              "charge": 30,
-              "reps": 10,
-              "rpe": 10,
-              "faite": true
-            }
-          ]
-        },
-        {
-          "exerciceId": "abduct",
-          "varianteId": "tg-abductor",
-          "saute": false,
-          "series": [
-            {
-              "charge": 90,
-              "reps": 10,
-              "rpe": 8,
-              "faite": true
-            },
-            {
-              "charge": 90,
-              "reps": 10,
-              "rpe": 8,
-              "faite": true
-            },
-            {
-              "reps": 10,
-              "rpe": 8,
-              "faite": true
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "s-1785749147995",
-      "type": "C",
-      "dateDebut": "2026-08-03T09:25:47.995Z",
-      "dateFin": "2026-08-03T10:49:02.286Z",
-      "statut": "terminee",
-      "routineFaite": true,
-      "cardio": {
-        "fait": true
+        "fait": false
       },
       "exercices": [
         {
-          "exerciceId": "tirage-vertical",
-          "varianteId": "tg-vertical",
+          "exerciceId": "dev-incline",
+          "varianteId": "hs-incline",
           "saute": false,
           "series": [
             {
-              "charge": 40,
+              "charge": 10,
               "reps": 8,
-              "rpe": 10,
+              "rpe": 8,
               "faite": true
             },
             {
-              "charge": 30,
-              "reps": 10,
-              "rpe": 9,
+              "charge": 10,
+              "reps": 9,
+              "rpe": 8,
               "faite": true
             },
             {
-              "charge": 35,
+              "charge": 10,
               "reps": 9,
               "rpe": 9,
               "faite": true
-            },
+            }
+          ]
+        },
+        {
+          "exerciceId": "dev-epaules",
+          "varianteId": "tg-shoulder",
+          "saute": false,
+          "series": [
             {
-              "charge": 35,
+              "charge": 15,
               "reps": 8,
-              "faite": false
-            }
-          ]
-        },
-        {
-          "exerciceId": "rowing",
-          "varianteId": "tg-lowrow",
-          "saute": false,
-          "series": [
-            {
-              "charge": 50,
-              "reps": 10,
               "rpe": 8,
               "faite": true
             },
             {
-              "charge": 35,
-              "reps": 11,
-              "rpe": 7,
-              "faite": true
-            },
-            {
-              "charge": 40,
-              "reps": 10,
-              "rpe": 7,
-              "faite": true
-            },
-            {
-              "charge": 40,
-              "reps": 10,
+              "charge": 15,
+              "reps": 9,
               "rpe": 8,
+              "faite": true
+            },
+            {
+              "charge": 15,
+              "reps": 8,
+              "rpe": 9,
               "faite": true
             }
           ]
         },
         {
-          "exerciceId": "pullover",
-          "varianteId": "cable-pullover",
+          "exerciceId": "ecarte",
+          "varianteId": "tg-pec",
           "saute": false,
           "series": [
+            {
+              "charge": 10,
+              "reps": 8,
+              "rpe": 9,
+              "faite": true
+            },
+            {
+              "charge": 5,
+              "reps": 15,
+              "rpe": 6,
+              "faite": true
+            },
             {
               "charge": 10,
               "reps": 10,
               "rpe": 8,
               "faite": true
-            },
+            }
+          ]
+        },
+        {
+          "exerciceId": "elev-lat-a",
+          "varianteId": "cable-lat",
+          "saute": false,
+          "series": [
             {
-              "charge": 7.5,
-              "reps": 12,
-              "rpe": 6,
-              "faite": true
-            },
-            {
-              "charge": 7.5,
+              "charge": 2.5,
               "reps": 12,
               "rpe": 7,
               "faite": true
+            },
+            {
+              "charge": 2.5,
+              "reps": 12,
+              "rpe": 7,
+              "faite": true
+            },
+            {
+              "charge": 2.5,
+              "reps": 15,
+              "rpe": 10,
+              "faite": true
             }
           ]
         },
         {
-          "exerciceId": "arriere-epaule",
-          "varianteId": "reverse-fly",
+          "exerciceId": "triceps-a",
+          "varianteId": "cable-pushdown",
           "saute": false,
           "series": [
             {
-              "charge": 2.5,
-              "reps": 10,
+              "charge": 12.5,
+              "reps": 8,
               "rpe": 8,
               "faite": true
             },
             {
-              "charge": 2.5,
-              "reps": 10,
+              "charge": 10,
+              "reps": 11,
               "rpe": 8,
               "faite": true
             },
             {
-              "charge": 2.5,
-              "reps": 10,
+              "charge": 7.5,
+              "reps": 15,
               "rpe": 8,
               "faite": true
             }
           ]
         },
         {
-          "exerciceId": "curl-lourd",
-          "varianteId": "curl-ez",
-          "saute": true,
-          "series": [
-            {
-              "reps": 10,
-              "faite": false
-            },
-            {
-              "reps": 10,
-              "faite": false
-            },
-            {
-              "reps": 10,
-              "faite": false
-            }
-          ]
-        },
-        {
-          "exerciceId": "dead-hang",
-          "varianteId": "hang-barre",
+          "exerciceId": "rotation-ext-a",
+          "varianteId": "rot-elastique",
           "saute": false,
           "series": [
             {
-              "dureeSec": 20,
+              "charge": 10,
+              "reps": 18,
+              "rpe": 10,
               "faite": true
             },
             {
-              "dureeSec": 30,
+              "charge": 10,
+              "reps": 18,
+              "rpe": 10,
               "faite": true
             },
             {
-              "dureeSec": 22,
+              "charge": 10,
+              "reps": 18,
+              "rpe": 10,
               "faite": true
             }
           ]
@@ -302,16 +167,31 @@
       ]
     },
     {
-      "id": "s-1785927038744",
+      "id": "s-1787060781696",
       "type": "D",
-      "dateDebut": "2026-08-05T10:50:38.744Z",
-      "dateFin": "2026-08-05T14:03:40.977Z",
+      "dateDebut": "2026-08-18T14:13:40.508Z",
+      "dateFin": "2026-08-18T15:06:40.416Z",
       "statut": "terminee",
-      "routineFaite": true,
+      "routineFaite": false,
       "cardio": {
-        "fait": true
+        "fait": false
       },
       "exercices": [
+        {
+          "exerciceId": "extenseurs-doigts",
+          "varianteId": "elastique-doigts",
+          "saute": false,
+          "series": [
+            {
+              "reps": 20,
+              "faite": true
+            },
+            {
+              "reps": 20,
+              "faite": true
+            }
+          ]
+        },
         {
           "exerciceId": "hammer-curl",
           "varianteId": "hammer-halt",
@@ -324,15 +204,9 @@
               "faite": true
             },
             {
-              "charge": 12,
-              "reps": 10,
-              "rpe": 10,
-              "faite": true
-            },
-            {
               "charge": 10,
-              "reps": 8,
-              "rpe": 10,
+              "reps": 10,
+              "rpe": 7,
               "faite": true
             },
             {
@@ -350,26 +224,20 @@
           "series": [
             {
               "charge": 10,
-              "reps": 12,
-              "rpe": 7,
+              "reps": 15,
+              "rpe": 6,
+              "faite": true
+            },
+            {
+              "charge": 10,
+              "reps": 15,
+              "rpe": 6,
               "faite": true
             },
             {
               "charge": 10,
               "reps": 12,
-              "rpe": 8,
-              "faite": true
-            },
-            {
-              "charge": 10,
-              "reps": 12,
-              "rpe": 8,
-              "faite": true
-            },
-            {
-              "charge": 10,
-              "reps": 12,
-              "rpe": 8,
+              "rpe": 10,
               "faite": true
             }
           ]
@@ -380,21 +248,21 @@
           "saute": false,
           "series": [
             {
+              "charge": 6,
+              "reps": 12,
+              "rpe": 7,
+              "faite": true
+            },
+            {
               "charge": 8,
-              "reps": 8,
+              "reps": 10,
               "rpe": 10,
               "faite": true
             },
             {
               "charge": 6,
-              "reps": 8,
-              "rpe": 10,
-              "faite": true
-            },
-            {
-              "charge": 6,
-              "reps": 9,
-              "rpe": 10,
+              "reps": 12,
+              "rpe": 7,
               "faite": true
             }
           ]
@@ -406,19 +274,19 @@
           "series": [
             {
               "charge": 10,
-              "reps": 8,
-              "rpe": 10,
+              "reps": 12,
+              "rpe": 8,
               "faite": true
             },
             {
               "charge": 10,
-              "reps": 8,
+              "reps": 12,
               "rpe": 9,
               "faite": true
             },
             {
               "charge": 10,
-              "reps": 8,
+              "reps": 12,
               "rpe": 9,
               "faite": true
             }
@@ -431,19 +299,21 @@
           "series": [
             {
               "charge": 6,
-              "reps": 14,
+              "reps": 25,
+              "rpe": 6,
+              "faite": true
+            },
+            {
+              "charge": 8,
+              "reps": 25,
               "rpe": 8,
               "faite": true
             },
             {
-              "charge": 6,
-              "reps": 20,
-              "rpe": 9,
+              "charge": 5,
+              "reps": 25,
+              "rpe": 10,
               "faite": true
-            },
-            {
-              "reps": 20,
-              "faite": false
             }
           ]
         },
@@ -454,61 +324,21 @@
           "series": [
             {
               "charge": 4,
-              "reps": 10,
-              "rpe": 9,
+              "reps": 20,
+              "rpe": 8,
               "faite": true
             },
             {
               "charge": 4,
-              "reps": 15,
-              "rpe": 9,
-              "faite": true
-            },
-            {
               "reps": 20,
-              "faite": false
-            }
-          ]
-        },
-        {
-          "exerciceId": "elev-lat-d",
-          "varianteId": "cable-lat-d",
-          "saute": false,
-          "series": [
-            {
-              "charge": 2.5,
-              "reps": 10,
               "rpe": 8,
               "faite": true
             },
             {
-              "charge": 2.5,
-              "reps": 10,
-              "rpe": 8,
+              "charge": 4,
+              "reps": 20,
+              "rpe": 10,
               "faite": true
-            },
-            {
-              "reps": 15,
-              "faite": false
-            }
-          ]
-        },
-        {
-          "exerciceId": "extenseurs-doigts",
-          "varianteId": "elastique-doigts",
-          "saute": true,
-          "series": [
-            {
-              "reps": 20,
-              "faite": false
-            },
-            {
-              "reps": 20,
-              "faite": false
-            },
-            {
-              "reps": 20,
-              "faite": false
             }
           ]
         },
@@ -518,201 +348,19 @@
           "saute": false,
           "series": [
             {
-              "charge": 32,
+              "charge": 60,
               "dureeSec": 40,
               "faite": true
             },
             {
-              "charge": 32,
+              "charge": 60,
               "dureeSec": 40,
               "faite": true
             },
             {
-              "charge": 32,
-              "dureeSec": 30,
-              "faite": true
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "s-1786013648705",
-      "type": "E",
-      "dateDebut": "2026-08-06T10:54:08.705Z",
-      "dateFin": "2026-08-06T13:38:16.128Z",
-      "statut": "terminee",
-      "routineFaite": false,
-      "cardio": {
-        "fait": false
-      },
-      "exercices": [
-        {
-          "exerciceId": "rdl",
-          "varianteId": "rdl-halt",
-          "saute": true,
-          "series": [
-            {
-              "reps": 10,
-              "faite": false
-            },
-            {
-              "reps": 10,
-              "faite": false
-            },
-            {
-              "reps": 10,
-              "faite": false
-            },
-            {
-              "reps": 10,
-              "faite": false
-            }
-          ]
-        },
-        {
-          "exerciceId": "leg-curl",
-          "varianteId": "tg-legcurl",
-          "saute": false,
-          "series": [
-            {
-              "charge": 50,
-              "reps": 10,
-              "rpe": 7,
-              "faite": true
-            },
-            {
-              "charge": 50,
-              "reps": 10,
-              "rpe": 8,
-              "faite": true
-            },
-            {
-              "charge": 50,
-              "reps": 10,
-              "rpe": 8,
-              "faite": true
-            },
-            {
-              "charge": 50,
-              "reps": 10,
-              "rpe": 8,
-              "faite": true
-            }
-          ]
-        },
-        {
-          "exerciceId": "hip-thrust",
-          "varianteId": "hs-glute-e",
-          "saute": false,
-          "series": [
-            {
-              "charge": 80,
-              "reps": 10,
-              "rpe": 8,
-              "faite": true
-            },
-            {
-              "charge": 90,
-              "reps": 10,
-              "rpe": 8,
-              "faite": true
-            },
-            {
-              "reps": 12,
-              "faite": false
-            }
-          ]
-        },
-        {
-          "exerciceId": "fentes",
-          "varianteId": "fentes-halt",
-          "saute": false,
-          "series": [
-            {
-              "charge": 32,
-              "reps": 7,
-              "rpe": 8,
-              "faite": true
-            },
-            {
-              "charge": 32,
-              "reps": 7,
-              "rpe": 10,
-              "faite": true
-            },
-            {
-              "charge": 16,
-              "reps": 7,
-              "rpe": 8,
-              "faite": true
-            }
-          ]
-        },
-        {
-          "exerciceId": "mollets",
-          "varianteId": "calf-halt",
-          "saute": false,
-          "series": [
-            {
-              "charge": 16,
-              "reps": 30,
-              "rpe": 7,
-              "faite": true
-            },
-            {
-              "charge": 16,
-              "reps": 30,
-              "rpe": 7,
-              "faite": true
-            },
-            {
-              "charge": 16,
-              "reps": 30,
-              "rpe": 7,
-              "faite": true
-            },
-            {
-              "reps": 15,
-              "faite": false
-            }
-          ]
-        },
-        {
-          "exerciceId": "gainage",
-          "varianteId": "planche",
-          "saute": true,
-          "series": [
-            {
+              "charge": 60,
               "dureeSec": 40,
-              "faite": false
-            },
-            {
-              "dureeSec": 40,
-              "faite": false
-            },
-            {
-              "dureeSec": 40,
-              "faite": false
-            }
-          ]
-        },
-        {
-          "exerciceId": "pallof",
-          "varianteId": "pallof-cable",
-          "saute": true,
-          "series": [
-            {
-              "reps": 12,
-              "faite": false
-            },
-            {
-              "reps": 12,
-              "faite": false
-            },
-            {
-              "reps": 12,
-              "faite": false
+              "faite": true
             }
           ]
         }
@@ -721,108 +369,84 @@
   ],
   "chargesReference": [
     {
-      "exerciceId": "cmj",
-      "varianteId": "cmj-std"
-    },
-    {
-      "exerciceId": "box-jump",
-      "varianteId": "box-std"
-    },
-    {
-      "exerciceId": "presse",
-      "varianteId": "tg-legpress",
-      "chargeReference": 200,
-      "derniereCharge": 200,
-      "meilleurePerf": {
-        "valeur": 200,
-        "unite": "kg",
-        "date": "2026-08-02T13:49:47.572Z"
-      }
-    },
-    {
-      "exerciceId": "quad-uni",
-      "varianteId": "tg-legext",
-      "chargeReference": 30,
-      "derniereCharge": 30,
-      "meilleurePerf": {
-        "valeur": 30,
-        "unite": "kg",
-        "date": "2026-08-02T13:49:47.572Z"
-      }
-    },
-    {
-      "exerciceId": "abduct",
-      "varianteId": "tg-abductor",
-      "chargeReference": 90,
-      "derniereCharge": 90,
-      "meilleurePerf": {
-        "valeur": 90,
-        "unite": "kg",
-        "date": "2026-08-02T13:49:47.572Z"
-      }
-    },
-    {
-      "exerciceId": "tirage-vertical",
-      "varianteId": "tg-vertical",
-      "chargeReference": 40,
-      "derniereCharge": 40,
-      "meilleurePerf": {
-        "valeur": 40,
-        "unite": "kg",
-        "date": "2026-08-03T10:49:20.720Z"
-      }
-    },
-    {
-      "exerciceId": "rowing",
-      "varianteId": "tg-lowrow",
-      "chargeReference": 50,
-      "derniereCharge": 50,
-      "meilleurePerf": {
-        "valeur": 50,
-        "unite": "kg",
-        "date": "2026-08-03T10:49:20.720Z"
-      }
-    },
-    {
-      "exerciceId": "pullover",
-      "varianteId": "cable-pullover",
+      "exerciceId": "dev-incline",
+      "varianteId": "hs-incline",
       "chargeReference": 10,
       "derniereCharge": 10,
       "meilleurePerf": {
         "valeur": 10,
         "unite": "kg",
-        "date": "2026-08-03T10:49:20.720Z"
+        "date": "2026-08-07T13:26:09.935Z"
       }
     },
     {
-      "exerciceId": "arriere-epaule",
-      "varianteId": "reverse-fly",
+      "exerciceId": "dev-epaules",
+      "varianteId": "tg-shoulder",
+      "chargeReference": 15,
+      "derniereCharge": 15,
+      "meilleurePerf": {
+        "valeur": 15,
+        "unite": "kg",
+        "date": "2026-08-07T13:26:09.935Z"
+      }
+    },
+    {
+      "exerciceId": "ecarte",
+      "varianteId": "tg-pec",
+      "chargeReference": 10,
+      "derniereCharge": 10,
+      "meilleurePerf": {
+        "valeur": 10,
+        "unite": "kg",
+        "date": "2026-08-07T13:26:09.935Z"
+      }
+    },
+    {
+      "exerciceId": "elev-lat-a",
+      "varianteId": "cable-lat",
       "chargeReference": 2.5,
       "derniereCharge": 2.5,
       "meilleurePerf": {
         "valeur": 2.5,
         "unite": "kg",
-        "date": "2026-08-03T10:49:20.720Z"
+        "date": "2026-08-07T13:26:09.935Z"
       }
     },
     {
-      "exerciceId": "dead-hang",
-      "varianteId": "hang-barre",
+      "exerciceId": "triceps-a",
+      "varianteId": "cable-pushdown",
+      "chargeReference": 12.5,
+      "derniereCharge": 12.5,
       "meilleurePerf": {
-        "valeur": 30,
-        "unite": "sec",
-        "date": "2026-08-03T10:49:20.720Z"
+        "valeur": 12.5,
+        "unite": "kg",
+        "date": "2026-08-07T13:26:09.935Z"
       }
+    },
+    {
+      "exerciceId": "rotation-ext-a",
+      "varianteId": "rot-elastique",
+      "chargeReference": 10,
+      "derniereCharge": 10,
+      "meilleurePerf": {
+        "valeur": 10,
+        "unite": "kg",
+        "date": "2026-08-07T13:26:09.935Z"
+      }
+    },
+    {
+      "exerciceId": "extenseurs-doigts",
+      "varianteId": "elastique-doigts"
     },
     {
       "exerciceId": "hammer-curl",
       "varianteId": "hammer-halt",
-      "chargeReference": 12,
-      "derniereCharge": 12,
+      "chargeReference": 10,
+      "derniereCharge": 10,
       "meilleurePerf": {
-        "valeur": 12,
+        "valeur": 10,
         "unite": "kg",
-        "date": "2026-08-05T14:03:44.208Z"
+        "date": "2026-08-18T15:06:42.030Z"
       }
     },
     {
@@ -833,7 +457,7 @@
       "meilleurePerf": {
         "valeur": 10,
         "unite": "kg",
-        "date": "2026-08-05T14:03:44.208Z"
+        "date": "2026-08-18T15:06:42.031Z"
       }
     },
     {
@@ -844,7 +468,7 @@
       "meilleurePerf": {
         "valeur": 8,
         "unite": "kg",
-        "date": "2026-08-05T14:03:44.208Z"
+        "date": "2026-08-18T15:06:42.031Z"
       }
     },
     {
@@ -855,18 +479,18 @@
       "meilleurePerf": {
         "valeur": 10,
         "unite": "kg",
-        "date": "2026-08-05T14:03:44.208Z"
+        "date": "2026-08-18T15:06:42.031Z"
       }
     },
     {
       "exerciceId": "wrist-curl",
       "varianteId": "wrist-halt",
-      "chargeReference": 6,
-      "derniereCharge": 6,
+      "chargeReference": 8,
+      "derniereCharge": 8,
       "meilleurePerf": {
-        "valeur": 6,
+        "valeur": 8,
         "unite": "kg",
-        "date": "2026-08-05T14:03:44.208Z"
+        "date": "2026-08-18T15:06:42.031Z"
       }
     },
     {
@@ -877,73 +501,18 @@
       "meilleurePerf": {
         "valeur": 4,
         "unite": "kg",
-        "date": "2026-08-05T14:03:44.208Z"
-      }
-    },
-    {
-      "exerciceId": "elev-lat-d",
-      "varianteId": "cable-lat-d",
-      "chargeReference": 2.5,
-      "derniereCharge": 2.5,
-      "meilleurePerf": {
-        "valeur": 2.5,
-        "unite": "kg",
-        "date": "2026-08-05T14:03:44.208Z"
+        "date": "2026-08-18T15:06:42.031Z"
       }
     },
     {
       "exerciceId": "grip-long",
       "varianteId": "farmer-d",
-      "chargeReference": 32,
-      "derniereCharge": 32,
+      "chargeReference": 60,
+      "derniereCharge": 60,
       "meilleurePerf": {
-        "valeur": 32,
+        "valeur": 60,
         "unite": "kg",
-        "date": "2026-08-05T14:03:44.209Z"
-      }
-    },
-    {
-      "exerciceId": "leg-curl",
-      "varianteId": "tg-legcurl",
-      "chargeReference": 50,
-      "derniereCharge": 50,
-      "meilleurePerf": {
-        "valeur": 50,
-        "unite": "kg",
-        "date": "2026-08-06T13:38:18.358Z"
-      }
-    },
-    {
-      "exerciceId": "hip-thrust",
-      "varianteId": "hs-glute-e",
-      "chargeReference": 90,
-      "derniereCharge": 90,
-      "meilleurePerf": {
-        "valeur": 90,
-        "unite": "kg",
-        "date": "2026-08-06T13:38:18.358Z"
-      }
-    },
-    {
-      "exerciceId": "fentes",
-      "varianteId": "fentes-halt",
-      "chargeReference": 32,
-      "derniereCharge": 32,
-      "meilleurePerf": {
-        "valeur": 32,
-        "unite": "kg",
-        "date": "2026-08-06T13:38:18.358Z"
-      }
-    },
-    {
-      "exerciceId": "mollets",
-      "varianteId": "calf-halt",
-      "chargeReference": 16,
-      "derniereCharge": 16,
-      "meilleurePerf": {
-        "valeur": 16,
-        "unite": "kg",
-        "date": "2026-08-06T13:38:18.358Z"
+        "date": "2026-08-18T15:06:42.031Z"
       }
     }
   ],
