@@ -1,7 +1,7 @@
 {
   "app": "suivi-muscu",
   "schemaVersion": 1,
-  "exporteLe": "2026-08-26T10:50:08.828Z",
+  "exporteLe": "2026-08-28T10:37:53.071Z",
   "sessions": [
     {
       "id": "s-1786106117230",
@@ -523,6 +523,151 @@
           ]
         }
       ]
+    },
+    {
+      "id": "s-1787911062124",
+      "type": "C",
+      "dateDebut": "2026-08-28T09:57:42.124Z",
+      "dateFin": "2026-08-28T10:37:50.367Z",
+      "statut": "terminee",
+      "routineFaite": true,
+      "cardio": {
+        "fait": false
+      },
+      "exercices": [
+        {
+          "exerciceId": "tirage-vertical",
+          "varianteId": "tg-vertical",
+          "saute": false,
+          "series": [
+            {
+              "charge": 35,
+              "reps": 8,
+              "rpe": 8,
+              "faite": true
+            },
+            {
+              "charge": 45,
+              "reps": 8,
+              "rpe": 9,
+              "faite": true
+            },
+            {
+              "charge": 40,
+              "reps": 8,
+              "rpe": 8,
+              "faite": true
+            }
+          ]
+        },
+        {
+          "exerciceId": "rowing",
+          "varianteId": "hs-row",
+          "saute": false,
+          "series": [
+            {
+              "charge": 40,
+              "reps": 12,
+              "rpe": 7,
+              "faite": true
+            },
+            {
+              "charge": 45,
+              "reps": 10,
+              "rpe": 8,
+              "faite": true
+            },
+            {
+              "charge": 40,
+              "reps": 10,
+              "rpe": 8,
+              "faite": true
+            }
+          ]
+        },
+        {
+          "exerciceId": "pullover",
+          "varianteId": "cable-pullover",
+          "saute": false,
+          "series": [
+            {
+              "charge": 15,
+              "reps": 12,
+              "rpe": 7,
+              "faite": true
+            },
+            {
+              "charge": 15,
+              "reps": 10,
+              "rpe": 8,
+              "faite": true
+            },
+            {
+              "charge": 12.5,
+              "reps": 10,
+              "rpe": 8,
+              "faite": true
+            }
+          ]
+        },
+        {
+          "exerciceId": "arriere-epaule",
+          "varianteId": "reverse-fly",
+          "saute": true,
+          "series": [
+            {
+              "reps": 15,
+              "faite": false
+            },
+            {
+              "reps": 15,
+              "faite": false
+            },
+            {
+              "reps": 15,
+              "faite": false
+            }
+          ]
+        },
+        {
+          "exerciceId": "extension-45",
+          "varianteId": "ext45-std",
+          "saute": true,
+          "series": [
+            {
+              "reps": 12,
+              "faite": false
+            },
+            {
+              "reps": 12,
+              "faite": false
+            },
+            {
+              "reps": 12,
+              "faite": false
+            }
+          ]
+        },
+        {
+          "exerciceId": "dead-hang",
+          "varianteId": "hang-barre",
+          "saute": false,
+          "series": [
+            {
+              "dureeSec": 30,
+              "faite": true
+            },
+            {
+              "dureeSec": 30,
+              "faite": true
+            },
+            {
+              "dureeSec": 25,
+              "faite": true
+            }
+          ]
+        }
+      ]
     }
   ],
   "chargesReference": [
@@ -682,6 +827,48 @@
         "valeur": 60,
         "unite": "kg",
         "date": "2026-08-18T15:06:42.031Z"
+      }
+    },
+    {
+      "exerciceId": "tirage-vertical",
+      "varianteId": "tg-vertical",
+      "chargeReference": 45,
+      "derniereCharge": 45,
+      "meilleurePerf": {
+        "valeur": 45,
+        "unite": "kg",
+        "date": "2026-08-28T10:37:52.286Z"
+      }
+    },
+    {
+      "exerciceId": "rowing",
+      "varianteId": "hs-row",
+      "chargeReference": 45,
+      "derniereCharge": 45,
+      "meilleurePerf": {
+        "valeur": 45,
+        "unite": "kg",
+        "date": "2026-08-28T10:37:52.286Z"
+      }
+    },
+    {
+      "exerciceId": "pullover",
+      "varianteId": "cable-pullover",
+      "chargeReference": 15,
+      "derniereCharge": 15,
+      "meilleurePerf": {
+        "valeur": 15,
+        "unite": "kg",
+        "date": "2026-08-28T10:37:52.286Z"
+      }
+    },
+    {
+      "exerciceId": "dead-hang",
+      "varianteId": "hang-barre",
+      "meilleurePerf": {
+        "valeur": 30,
+        "unite": "sec",
+        "date": "2026-08-28T10:37:52.286Z"
       }
     }
   ],
