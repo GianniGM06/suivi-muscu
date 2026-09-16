@@ -1,7 +1,7 @@
 {
   "app": "suivi-muscu",
   "schemaVersion": 1,
-  "exporteLe": "2026-09-02T20:21:32.926Z",
+  "exporteLe": "2026-09-16T19:44:47.924Z",
   "sessions": [
     {
       "id": "s-1786106117230",
@@ -868,6 +868,166 @@
           ]
         }
       ]
+    },
+    {
+      "id": "s-1789585128014",
+      "type": "A",
+      "dateDebut": "2026-09-16T18:58:49.075Z",
+      "dateFin": "2026-09-16T19:44:41.158Z",
+      "statut": "terminee",
+      "routineFaite": true,
+      "cardio": {
+        "fait": false
+      },
+      "exercices": [
+        {
+          "exerciceId": "dev-incline",
+          "varianteId": "hs-incline",
+          "saute": false,
+          "series": [
+            {
+              "charge": 10,
+              "reps": 10,
+              "rpe": 9,
+              "faite": true
+            },
+            {
+              "charge": 10,
+              "reps": 10,
+              "rpe": 8,
+              "faite": true
+            },
+            {
+              "charge": 10,
+              "reps": 10,
+              "rpe": 9,
+              "faite": true
+            }
+          ]
+        },
+        {
+          "exerciceId": "dev-epaules",
+          "varianteId": "tg-shoulder",
+          "saute": false,
+          "series": [
+            {
+              "charge": 10,
+              "reps": 12,
+              "rpe": 9,
+              "faite": true
+            },
+            {
+              "charge": 15,
+              "reps": 11,
+              "rpe": 7,
+              "faite": true
+            },
+            {
+              "charge": 15,
+              "reps": 8,
+              "rpe": 9,
+              "faite": true
+            }
+          ]
+        },
+        {
+          "exerciceId": "ecarte",
+          "varianteId": "tg-pec",
+          "saute": false,
+          "series": [
+            {
+              "charge": 10,
+              "reps": 8,
+              "rpe": 8,
+              "faite": true
+            },
+            {
+              "charge": 10,
+              "reps": 8,
+              "rpe": 8,
+              "faite": true
+            },
+            {
+              "charge": 10,
+              "reps": 10,
+              "rpe": 9,
+              "faite": true
+            }
+          ]
+        },
+        {
+          "exerciceId": "elev-lat-a",
+          "varianteId": "cable-lat",
+          "saute": false,
+          "series": [
+            {
+              "charge": 2.5,
+              "reps": 15,
+              "rpe": 8,
+              "faite": true
+            },
+            {
+              "charge": 2.5,
+              "reps": 15,
+              "rpe": 9,
+              "faite": true
+            },
+            {
+              "charge": 2.5,
+              "reps": 12,
+              "rpe": 10,
+              "faite": true
+            }
+          ]
+        },
+        {
+          "exerciceId": "triceps-a",
+          "varianteId": "cable-pushdown",
+          "saute": false,
+          "series": [
+            {
+              "charge": 10,
+              "reps": 12,
+              "rpe": 10,
+              "faite": true
+            },
+            {
+              "charge": 10,
+              "reps": 10,
+              "rpe": 10,
+              "faite": true
+            },
+            {
+              "charge": 10,
+              "reps": 10,
+              "rpe": 10,
+              "faite": true
+            }
+          ]
+        },
+        {
+          "exerciceId": "rotation-ext-a",
+          "varianteId": "rot-elastique",
+          "saute": false,
+          "series": [
+            {
+              "charge": 15,
+              "reps": 15,
+              "faite": true
+            },
+            {
+              "charge": 15,
+              "reps": 15,
+              "faite": true
+            },
+            {
+              "charge": 15,
+              "reps": 15,
+              "faite": true
+            }
+          ]
+        }
+      ]
     }
   ],
   "chargesReference": [
@@ -929,8 +1089,8 @@
     {
       "exerciceId": "triceps-a",
       "varianteId": "cable-pushdown",
-      "chargeReference": 15,
-      "derniereCharge": 15,
+      "chargeReference": 10,
+      "derniereCharge": 10,
       "meilleurePerf": {
         "valeur": 15,
         "unite": "kg",
@@ -940,12 +1100,12 @@
     {
       "exerciceId": "rotation-ext-a",
       "varianteId": "rot-elastique",
-      "chargeReference": 10,
-      "derniereCharge": 10,
+      "chargeReference": 15,
+      "derniereCharge": 15,
       "meilleurePerf": {
-        "valeur": 10,
+        "valeur": 15,
         "unite": "kg",
-        "date": "2026-08-07T13:26:09.935Z"
+        "date": "2026-09-16T19:44:41.993Z"
       }
     },
     {
