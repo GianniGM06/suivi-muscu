@@ -1,7 +1,7 @@
 {
   "app": "suivi-muscu",
   "schemaVersion": 1,
-  "exporteLe": "2026-09-20T17:40:48.163Z",
+  "exporteLe": "2026-09-23T19:34:19.684Z",
   "sessions": [
     {
       "id": "s-1786106117230",
@@ -1228,6 +1228,157 @@
           ]
         }
       ]
+    },
+    {
+      "id": "s-1790186730966",
+      "type": "C",
+      "dateDebut": "2026-09-23T18:41:08.255Z",
+      "dateFin": "2026-09-23T19:34:17.748Z",
+      "statut": "terminee",
+      "routineFaite": true,
+      "cardio": {
+        "fait": false
+      },
+      "exercices": [
+        {
+          "exerciceId": "tirage-vertical",
+          "varianteId": "tg-vertical",
+          "saute": false,
+          "series": [
+            {
+              "charge": 45,
+              "reps": 8,
+              "rpe": 9,
+              "faite": true
+            },
+            {
+              "charge": 40,
+              "reps": 8,
+              "rpe": 8,
+              "faite": true
+            },
+            {
+              "charge": 45,
+              "reps": 8,
+              "rpe": 9,
+              "faite": true
+            }
+          ]
+        },
+        {
+          "exerciceId": "rowing",
+          "varianteId": "hs-row",
+          "saute": false,
+          "series": [
+            {
+              "charge": 40,
+              "reps": 10,
+              "rpe": 8,
+              "faite": true
+            },
+            {
+              "charge": 40,
+              "reps": 10,
+              "rpe": 9,
+              "faite": true
+            },
+            {
+              "charge": 40,
+              "reps": 12,
+              "rpe": 9,
+              "faite": true
+            }
+          ]
+        },
+        {
+          "exerciceId": "pullover",
+          "varianteId": "cable-pullover",
+          "saute": false,
+          "series": [
+            {
+              "charge": 15,
+              "reps": 10,
+              "rpe": 9,
+              "faite": true
+            },
+            {
+              "charge": 12.5,
+              "reps": 10,
+              "rpe": 9,
+              "faite": true
+            },
+            {
+              "charge": 10,
+              "reps": 10,
+              "rpe": 8,
+              "faite": true
+            }
+          ]
+        },
+        {
+          "exerciceId": "arriere-epaule",
+          "varianteId": "reverse-fly",
+          "saute": true,
+          "series": [
+            {
+              "reps": 15,
+              "faite": false
+            },
+            {
+              "reps": 15,
+              "faite": false
+            },
+            {
+              "reps": 15,
+              "faite": false
+            }
+          ]
+        },
+        {
+          "exerciceId": "extension-45",
+          "varianteId": "ext45-std",
+          "saute": false,
+          "series": [
+            {
+              "charge": 10,
+              "reps": 12,
+              "rpe": 8,
+              "faite": true
+            },
+            {
+              "charge": 10,
+              "reps": 10,
+              "rpe": 10,
+              "faite": true
+            },
+            {
+              "charge": 0,
+              "reps": 10,
+              "rpe": 10,
+              "faite": true
+            }
+          ]
+        },
+        {
+          "exerciceId": "dead-hang",
+          "varianteId": "hang-barre",
+          "saute": true,
+          "series": [
+            {
+              "dureeSec": 40,
+              "faite": false
+            },
+            {
+              "dureeSec": 40,
+              "faite": false
+            },
+            {
+              "dureeSec": 40,
+              "faite": false
+            }
+          ]
+        }
+      ]
     }
   ],
   "chargesReference": [
@@ -1403,8 +1554,8 @@
     {
       "exerciceId": "rowing",
       "varianteId": "hs-row",
-      "chargeReference": 45,
-      "derniereCharge": 45,
+      "chargeReference": 40,
+      "derniereCharge": 40,
       "meilleurePerf": {
         "valeur": 45,
         "unite": "kg",
@@ -1429,6 +1580,17 @@
         "valeur": 30,
         "unite": "sec",
         "date": "2026-08-28T10:37:52.286Z"
+      }
+    },
+    {
+      "exerciceId": "extension-45",
+      "varianteId": "ext45-std",
+      "chargeReference": 10,
+      "derniereCharge": 10,
+      "meilleurePerf": {
+        "valeur": 10,
+        "unite": "kg",
+        "date": "2026-09-23T19:34:18.699Z"
       }
     }
   ],
