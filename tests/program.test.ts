@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import sauvegarde from "../data/suivi.json";
-import { getExercice, getRoutine, getSeance, getSeances, ORDRE_SUGGESTION, SEANCES_SALLE } from "../src/data/program";
+import { getExercice, getRoutine, getSeance, getSeances, ORDRE_MAISON, ORDRE_SUGGESTION, SEANCES_MAISON, SEANCES_SALLE } from "../src/data/program";
 
 describe("Programme v5", () => {
   it("propose les 4 séances salle dans l'ordre 1, 2, 3, +", () => {
@@ -23,5 +23,15 @@ describe("Programme v5", () => {
       for (const e of s.exercices) expect(getExercice(e.exerciceId), e.exerciceId).toBeDefined();
     }
     for (const c of sauvegarde.chargesReference) expect(getExercice(c.exerciceId), c.exerciceId).toBeDefined();
+  });
+
+  it("propose les 3 séances maison A, B, C avec des ids d'exercice propres à la maison", () => {
+    expect(getSeances("maison").map((s) => s.lettre)).toEqual(["A", "B", "C"]);
+    expect(ORDRE_MAISON.every((id) => getSeance(id))).toBe(true);
+    const idsMaison = SEANCES_MAISON.flatMap((s) => s.exercices.map((e) => e.id));
+    const idsSalle = new Set(SEANCES_SALLE.flatMap((s) => s.exercices.map((e) => e.id)));
+    expect(new Set(idsMaison).size).toBe(idsMaison.length);
+    expect(idsMaison.every((id) => id.startsWith("m-") && !idsSalle.has(id))).toBe(true);
+    for (const s of SEANCES_MAISON) expect(getRoutine(s.routineId), s.id).toBeDefined();
   });
 });

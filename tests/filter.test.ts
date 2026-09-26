@@ -116,14 +116,14 @@ describe("Séparation Salle / Maison", () => {
       piscine: { fait: true, allersRetours: 8, nage: "brasse" },
       exercices: [
         {
-          exerciceId: "m-pompes",
-          varianteId: "m-pompes-std",
+          exerciceId: "m-squat-elas",
+          varianteId: "m-squat-sveltus15",
           saute: false,
           series: [{ reps: 18, faite: true }]
         }
       ]
     });
-    d.exerciseState["m-pompes"] = { varianteActive: "m-pompes-std", parVariante: { "m-pompes-std": {} } };
+    d.exerciseState["m-squat-elas"] = { varianteActive: "m-squat-sveltus15", parVariante: { "m-squat-sveltus15": {} } };
     return d;
   }
 

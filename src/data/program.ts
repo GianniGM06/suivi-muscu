@@ -2,6 +2,7 @@
 // Programme v5 — 3 séances + 1 optionnelle (révisé le 26 septembre 2026)
 // 1 Haut du corps (poussée + tirage, focus coiffe) · 2 Bras & avant-bras
 // 3 Jambes volley (explosivité) · + Optionnelle (2e passage haut du corps)
+// Maison : A bas du corps (quadri/fessiers) · B ischios/fessiers · C haut du corps
 // Double progression : charge fixe, haut de fourchette atteint
 // sur toutes les séries → +2,5 kg.
 // Cardio : HORS salle (40 min de marche par jour).
@@ -196,6 +197,26 @@ export const ROUTINES: Routine[] = [
         detail: "2×15.",
         mode: "reps"
       }
+    ]
+  },
+  {
+    id: "routine-maison-bas",
+    nom: "Échauffement bas du corps (maison)",
+    quand: "Début des séances Maison A et B (~5 min)",
+    items: [
+      { id: "mobilite-hanches", nom: "Mobilité des hanches et des chevilles", detail: "1 à 2 min, cercles et balanciers.", mode: "reps" },
+      { id: "squats-pdc", nom: "Squats au poids du corps", detail: "15 répétitions.", mode: "reps" },
+      { id: "abduction-echauff", nom: "Abductions allongée sur le côté", detail: "10 par jambe — bande pliée au-dessus des genoux.", mode: "reps" }
+    ]
+  },
+  {
+    id: "routine-maison-haut",
+    nom: "Échauffement haut du corps (maison)",
+    quand: "Début de la séance Maison C (~5 min)",
+    items: [
+      { id: "rotations-epaules", nom: "Rotations d'épaules", detail: "10 vers l'avant, 10 vers l'arrière.", mode: "reps" },
+      { id: "face-pull-leger", nom: "Face pulls légers", detail: "2×12 — bande rouge, sans forcer.", mode: "reps" },
+      { id: "chat-vache", nom: "Chat-vache", detail: "10 répétitions, sur les avant-bras si le poignet gêne.", mode: "reps" }
     ]
   }
 ];
@@ -1409,415 +1430,391 @@ export const SEANCES_ARCHIVE: Seance[] = [
 ];
 
 // ============================================================
-// MODE MAISON — vacances sans salle
-// Matériel : une power band 15 kg · piscine · poids du corps
-// Charge faible → le stimulus vient de l'effort : 15-25 reps,
-// dernière série à l'échec. Aucun champ de charge (sansCharge).
+// MODE MAISON — 3 séances à domicile de 30-35 min
+// Matériel : Elastiband Sveltus 15 kg (bas du corps), Elastiband
+// Sveltus 10 kg (haut du corps), grande bande en boucle rouge.
+// Aucun appui sur les mains, aucun saut. Fin de série difficile :
+// 2-3 reps en réserve. Résistance élastique → pas de champ charge.
+// Semaine type : A lundi · C mercredi · B vendredi.
 // ============================================================
 
+const PROGRESSION_MAISON =
+  "Progression (un seul paramètre à la fois) — sem. 1-2 : 2 tours, exécution lente · 3-4 : 3 tours, +1-2 reps · 5-6 : prise plus courte ou plus loin de l'ancrage, descente en 3 s · 7-8 : repos 30 s, pause 1-2 s en bas · 9-10 : résistance plus forte · 11-12 : unilatéral. Plus de 3 reps en réserve → on durcit.";
+
+const PLUS_DUR_ELASTIQUE = "Plus de 3 reps en réserve : raccourcis la prise ou éloigne-toi de l'ancrage.";
+
+const ARRET_MAISON = [
+  "Poignet : douleur, gonflement ou picotements → arrêter l'exercice et consulter",
+  "Douleur articulaire (genou, épaule) ≠ courbature → réduire l'amplitude ou la résistance",
+  "Jambes lourdes avant un match → décaler la séance",
+  "Vérifier régulièrement que les bandes n'ont ni fissure ni entaille, et que l'ancrage est solide"
+];
+
 export const SEANCES_MAISON: Seance[] = [
+  // ============ A — BAS DU CORPS (quadriceps & fessiers) ============
   {
     id: "M1",
-    lettre: "M1",
-    nom: "Élastiques A — Poussée & jambes",
-    dominante: "Pectoraux, épaules, quadriceps, mollets · ~25 min",
-    objectif:
-      "Maintenir, pas progresser. Charge faible : va près de l'échec, 15-25 reps. Pour durcir avec une seule bande : écarte les pieds (pré-tension), double la bande, travaille à un bras ou une jambe, ralentis la descente à 3 secondes.",
-    piscine: {
-      consigne:
-        "Compté en allers-retours, jamais en minutes. Progression sur la semaine : 6 → 8 → 10 → 12 → 14. À partir du 3e jour, alterne 1 A/R rapide et 1 A/R lent : plus court, moins ennuyeux, et l'intensité agit mieux sur la graisse viscérale. Jours 4 et 6 : ajoute 10 sauts verticaux dans l'eau (l'immersion décharge la cheville droite).",
-      reglesEpaule: [
-        "2 allers-retours de crawl MAXIMUM au premier jour",
-        "La moindre gêne, pendant ou le lendemain → brasse uniquement pour toute la semaine",
-        "Tu n'as pas renagé depuis ta blessure : le crawl est le mouvement le plus exigeant pour une coiffe"
-      ]
-    },
-    signauxArret: ["Douleur d'épaule sur le développé → stop, passe aux exercices de tirage"],
+    lettre: "A",
+    nom: "Bas du corps — quadriceps & fessiers",
+    dominante: "Quadriceps, fessiers, gainage · ~30-35 min",
+    objectif: `En circuit de 2 à 3 tours, sans sauts, peu de place nécessaire. ${PROGRESSION_MAISON}`,
+    routineId: "routine-maison-bas",
+    routinePosition: "debut",
+    signauxArret: ARRET_MAISON,
     exercices: [
       {
-        id: "m-pompes",
-        nom: "Pompes (descente en 3 s)",
-        mode: "reps",
-        series: 3,
-        repsMin: 8,
-        repsMax: 25,
-        rpe: "Jusqu'à l'échec",
-        reposSec: 60,
-        sansCharge: true,
-        progression: "Trop facile → pieds surélevés. Trop dur → mains surélevées.",
-        variantes: [
-          { id: "m-pompes-std", rang: 1, nom: "Pompes au sol, coudes à 45°", contrainte: "faible" },
-          { id: "m-pompes-haut", rang: 2, nom: "Mains surélevées (table, muret)", contrainte: "faible" },
-          { id: "m-pompes-pieds", rang: 3, nom: "Pieds surélevés", contrainte: "modérée" }
-        ]
-      },
-      {
-        id: "m-fentes",
-        nom: "Fentes arrière",
+        id: "m-squat-elas",
+        nom: "Squat élastique",
         mode: "reps",
         series: 3,
         repsMin: 12,
         repsMax: 15,
-        rpe: "1-2 reps en réserve",
-        reposSec: 60,
+        rpe: "2-3 reps en réserve",
+        reposSec: 45,
         sansCharge: true,
-        parCote: true,
-        progression: "Tempo lent et pause d'1 s en bas plutôt que d'ajouter de la charge.",
+        progression: PLUS_DUR_ELASTIQUE,
         variantes: [
-          { id: "m-fentes-std", rang: 1, nom: "Fentes arrière alternées", contrainte: "aucune" },
-          { id: "m-fentes-bulg", rang: 2, nom: "Fentes bulgares (pied arrière surélevé)", contrainte: "aucune" }
+          { id: "m-squat-sveltus15", rang: 1, nom: "Élastique sous les pieds, poignées aux épaules", materiel: "Sveltus 15 kg", contrainte: "aucune" },
+          { id: "m-squat-pdc", rang: 2, nom: "Poids du corps, descente en 3 s", contrainte: "aucune" }
         ]
       },
       {
-        id: "m-dev-epaules",
-        nom: "Développé épaules élastique (devant)",
+        id: "m-hip-thrust",
+        nom: "Hip thrust, épaules sur le canapé",
         mode: "reps",
         series: 3,
-        repsMin: 15,
-        repsMax: 20,
-        rpe: "1-2 reps en réserve",
-        reposSec: 60,
+        repsMin: 12,
+        repsMax: 15,
+        rpe: "2-3 reps en réserve",
+        reposSec: 45,
         sansCharge: true,
-        adaptations: "Jamais derrière la tête. Écarte les pieds pour durcir.",
+        adaptations: "Serrer les fessiers 1 s en haut, menton rentré.",
         variantes: [
-          { id: "m-dev-band", rang: 1, nom: "Bande sous les pieds, poussée verticale devant", materiel: "Power band 15 kg", contrainte: "modérée" }
+          { id: "m-hip-thrust-sveltus15", rang: 1, nom: "Élastique en travers du bassin", materiel: "Sveltus 15 kg", contrainte: "aucune" },
+          { id: "m-hip-thrust-pdc", rang: 2, nom: "Pont fessier au sol", contrainte: "aucune" }
         ]
       },
       {
-        id: "m-squat-saute",
-        nom: "Squats sautés (puissance)",
+        id: "m-fente-v2",
+        nom: "Fente arrière ou fente bulgare",
         mode: "reps",
         series: 3,
-        repsMin: 8,
-        repsMax: 8,
-        rpe: "Explosif, jamais à l'échec",
-        reposSec: 90,
-        sansCharge: true,
-        adaptations: "Réception amortie et silencieuse. Douleur cheville → supprimer.",
-        variantes: [
-          { id: "m-squat-saute-std", rang: 1, nom: "Squat sauté, réception amortie", contrainte: "aucune" }
-        ]
-      },
-      {
-        id: "m-elev-lat",
-        nom: "Élévations latérales élastique",
-        mode: "reps",
-        series: 3,
-        repsMin: 20,
-        repsMax: 20,
-        rpe: "Échec autorisé",
-        reposSec: 60,
-        sansCharge: true,
-        variantes: [
-          { id: "m-elev-band", rang: 1, nom: "Bande sous un pied, un bras à la fois", materiel: "Power band 15 kg", contrainte: "faible" }
-        ]
-      },
-      {
-        id: "m-triceps",
-        nom: "Triceps kickback élastique",
-        mode: "reps",
-        series: 3,
-        repsMin: 20,
-        repsMax: 20,
-        rpe: "Échec autorisé",
-        reposSec: 60,
-        sansCharge: true,
-        parCote: true,
-        variantes: [
-          { id: "m-kickback", rang: 1, nom: "Buste penché, coude fixe", materiel: "Power band 15 kg", contrainte: "faible" }
-        ]
-      },
-      {
-        id: "m-mollets",
-        nom: "Mollets unilatéral",
-        mode: "reps",
-        series: 3,
-        repsMin: 20,
-        repsMax: 20,
-        rpe: "Échec autorisé",
+        repsMin: 10,
+        repsMax: 10,
+        rpe: "2-3 reps en réserve",
         reposSec: 45,
         sansCharge: true,
         parCote: true,
         variantes: [
-          { id: "m-mollets-std", rang: 1, nom: "Sur une jambe, amplitude complète (marche si possible)", contrainte: "aucune" }
+          { id: "m-fente-arriere-v2", rang: 1, nom: "Fente arrière", contrainte: "aucune" },
+          { id: "m-fente-bulgare-v2", rang: 2, nom: "Fente bulgare, pied arrière sur une chaise", contrainte: "aucune" }
+        ]
+      },
+      {
+        id: "m-kickback",
+        nom: "Kickback debout",
+        mode: "reps",
+        series: 3,
+        repsMin: 12,
+        repsMax: 15,
+        rpe: "2-3 reps en réserve",
+        reposSec: 30,
+        sansCharge: true,
+        parCote: true,
+        variantes: [
+          { id: "m-kickback-bande", rang: 1, nom: "Boucle autour de la cheville, ancrage bas", materiel: "Bande rouge", contrainte: "aucune" }
+        ]
+      },
+      {
+        id: "m-pas-lateraux",
+        nom: "Pas latéraux en demi-squat",
+        mode: "reps",
+        series: 3,
+        repsMin: 12,
+        repsMax: 12,
+        rpe: "Tension constante sur la bande",
+        reposSec: 30,
+        sansCharge: true,
+        parCote: true,
+        adaptations: "12 pas dans chaque sens. Legging conseillé pour que la bande ne roule pas.",
+        variantes: [
+          { id: "m-pas-lat-bande", rang: 1, nom: "Bande pliée en 2 ou 3 au-dessus des genoux", materiel: "Bande rouge", contrainte: "aucune" }
+        ]
+      },
+      {
+        id: "m-planche-v2",
+        nom: "Planche sur les avant-bras",
+        mode: "duree",
+        series: 3,
+        dureeCibleSec: 30,
+        rpe: "20-40 s, tenue propre",
+        reposSec: 30,
+        sansCharge: true,
+        progression: "+5 s par semaine, jusqu'à 40 s.",
+        variantes: [
+          { id: "m-planche-v2-std", rang: 1, nom: "Sur les avant-bras, poignets libres", contrainte: "aucune" }
         ]
       }
     ]
   },
 
+  // ============ B — BAS DU CORPS (ischios & fessiers) ============
   {
     id: "M2",
-    lettre: "M2",
-    nom: "Élastiques B — Tirage & chaîne postérieure",
-    dominante: "Dos, ischios, fessiers, épaules · ~25 min",
-    objectif:
-      "Tirage et chaîne postérieure. Double la bande si 15 kg devient trop léger sur le rowing. Le band pull-apart est l'exercice le plus utile de la semaine pour ton épaule.",
-    piscine: {
-      consigne:
-        "Compté en allers-retours, jamais en minutes. Progression sur la semaine : 6 → 8 → 10 → 12 → 14. À partir du 3e jour, alterne 1 A/R rapide et 1 A/R lent : plus court, moins ennuyeux, et l'intensité agit mieux sur la graisse viscérale. Jours 4 et 6 : ajoute 10 sauts verticaux dans l'eau (l'immersion décharge la cheville droite).",
-      reglesEpaule: [
-        "2 allers-retours de crawl MAXIMUM au premier jour",
-        "La moindre gêne, pendant ou le lendemain → brasse uniquement pour toute la semaine",
-        "Tu n'as pas renagé depuis ta blessure : le crawl est le mouvement le plus exigeant pour une coiffe"
-      ]
-    },
-    signauxArret: ["Douleur lombaire sur le soulevé unilatéral → réduire l'amplitude"],
+    lettre: "B",
+    nom: "Bas du corps — ischios & fessiers",
+    dominante: "Ischios, fessiers, gainage · ~30-35 min",
+    objectif: `En circuit de 2 à 3 tours. Le Nordic réduit de moitié le risque de blessure des ischios. ${PROGRESSION_MAISON}`,
+    routineId: "routine-maison-bas",
+    routinePosition: "debut",
+    signauxArret: ARRET_MAISON,
     exercices: [
       {
-        id: "m-rowing",
-        nom: "Rowing assis élastique",
+        id: "m-rdl",
+        nom: "Soulevé de terre roumain élastique",
         mode: "reps",
         series: 3,
-        repsMin: 15,
-        repsMax: 20,
-        rpe: "1-2 reps en réserve",
-        reposSec: 60,
+        repsMin: 12,
+        repsMax: 15,
+        rpe: "2-3 reps en réserve",
+        reposSec: 45,
         sansCharge: true,
-        progression: "Trop léger → double la bande.",
+        adaptations: "Dos plat, bascule de hanche, genoux légèrement fléchis.",
+        progression: PLUS_DUR_ELASTIQUE,
         variantes: [
-          { id: "m-rowing-sol", rang: 1, nom: "Assis au sol, bande autour des pieds", materiel: "Power band 15 kg", contrainte: "faible" }
+          { id: "m-rdl-sveltus15", rang: 1, nom: "Élastique sous les pieds", materiel: "Sveltus 15 kg", contrainte: "aucune" }
         ]
       },
       {
-        id: "m-rdl-uni",
-        nom: "Soulevé de terre roumain unilatéral",
+        id: "m-pull-through",
+        nom: "Pull-through",
+        mode: "reps",
+        series: 3,
+        repsMin: 12,
+        repsMax: 15,
+        rpe: "2-3 reps en réserve",
+        reposSec: 45,
+        sansCharge: true,
+        adaptations: "Bande ancrée bas derrière toi, passée entre les jambes : bascule du bassin, puis extension de hanche en serrant les fessiers.",
+        variantes: [
+          { id: "m-pull-through-bande", rang: 1, nom: "Grande bande ancrée bas", materiel: "Bande rouge + ancrage", contrainte: "aucune" }
+        ]
+      },
+      {
+        id: "m-nordic",
+        nom: "Nordic hamstring",
+        mode: "reps",
+        series: 3,
+        repsMin: 5,
+        repsMax: 8,
+        rpe: "Descente la plus lente possible",
+        reposSec: 60,
+        sansCharge: true,
+        adaptations: "Pieds bloqués sous un meuble. Commencer avec une petite amplitude, réception sur les avant-bras, jamais sur les mains.",
+        variantes: [
+          { id: "m-nordic-pdc", rang: 1, nom: "Poids du corps, réception sur les avant-bras", contrainte: "faible" },
+          {
+            id: "m-leg-curl-bande",
+            rang: 2,
+            nom: "Leg curl allongé sur le ventre",
+            materiel: "Bande rouge à la cheville, ancrée bas devant",
+            contrainte: "aucune",
+            note: "À prendre en cas de gêne au poignet."
+          }
+        ]
+      },
+      {
+        id: "m-pont-uni",
+        nom: "Pont fessier sur une jambe",
         mode: "reps",
         series: 3,
         repsMin: 12,
         repsMax: 12,
         rpe: "2-3 reps en réserve",
-        reposSec: 60,
-        sansCharge: true,
-        parCote: true,
-        adaptations: "Dos plat, charnière de hanche. La charge élastique est trop faible pour être risquée.",
-        variantes: [
-          { id: "m-rdl-band", rang: 1, nom: "Bande sous le pied d'appui, jambe libre tendue en arrière", materiel: "Power band 15 kg", contrainte: "faible" }
-        ]
-      },
-      {
-        id: "m-tirage",
-        nom: "Tirage vertical élastique",
-        mode: "reps",
-        series: 3,
-        repsMin: 15,
-        repsMax: 20,
-        rpe: "1-2 reps en réserve",
-        reposSec: 60,
-        sansCharge: true,
-        variantes: [
-          {
-            id: "m-tirage-ancrage",
-            rang: 1,
-            nom: "Bande fixée en hauteur, à genoux",
-            materiel: "Power band + point d'ancrage",
-            contrainte: "faible",
-            note: "Nécessite un ancrage (porte, rambarde, branche)."
-          },
-          {
-            id: "m-pullover-sol",
-            rang: 2,
-            nom: "Pull-over au sol (SANS ancrage)",
-            materiel: "Power band 15 kg",
-            contrainte: "faible",
-            note: "Allongé, bande sous les fesses, bras semi-tendus qui montent au-dessus de la tête."
-          }
-        ]
-      },
-      {
-        id: "m-pull-apart",
-        nom: "Band pull-apart",
-        mode: "reps",
-        series: 3,
-        repsMin: 20,
-        repsMax: 20,
-        rpe: "1-2 reps en réserve",
-        reposSec: 45,
-        sansCharge: true,
-        variantes: [
-          {
-            id: "m-pull-apart-std",
-            rang: 1,
-            nom: "Bras tendus devant, écartement contrôlé",
-            materiel: "Power band 15 kg",
-            contrainte: "faible",
-            note: "L'exercice le plus utile de la semaine pour ton épaule droite."
-          }
-        ]
-      },
-      {
-        id: "m-curl",
-        nom: "Curl élastique",
-        mode: "reps",
-        series: 3,
-        repsMin: 20,
-        repsMax: 20,
-        rpe: "Échec autorisé",
-        reposSec: 60,
-        sansCharge: true,
-        variantes: [
-          { id: "m-curl-band", rang: 1, nom: "Bande sous les pieds (un bras à la fois pour durcir)", materiel: "Power band 15 kg", contrainte: "faible" }
-        ]
-      },
-      {
-        id: "m-pont-fessier",
-        nom: "Pont fessier unilatéral",
-        mode: "reps",
-        series: 3,
-        repsMin: 15,
-        repsMax: 15,
-        rpe: "1-2 reps en réserve",
-        reposSec: 60,
-        sansCharge: true,
-        parCote: true,
-        variantes: [
-          { id: "m-pont-uni", rang: 1, nom: "Un pied au sol, l'autre jambe tendue vers le haut", contrainte: "aucune" }
-        ]
-      },
-      {
-        id: "m-abduction",
-        nom: "Abduction hanche élastique",
-        mode: "reps",
-        series: 3,
-        repsMin: 15,
-        repsMax: 15,
-        rpe: "1-2 reps en réserve",
         reposSec: 45,
         sansCharge: true,
         parCote: true,
         variantes: [
-          { id: "m-abduction-band", rang: 1, nom: "Bande aux chevilles, debout", materiel: "Power band 15 kg", contrainte: "aucune" }
+          { id: "m-pont-uni-std", rang: 1, nom: "Un pied au sol, l'autre jambe tendue", contrainte: "aucune" }
+        ]
+      },
+      {
+        id: "m-abduction-v2",
+        nom: "Abduction allongée sur le côté",
+        mode: "reps",
+        series: 3,
+        repsMin: 15,
+        repsMax: 15,
+        rpe: "2-3 reps en réserve",
+        reposSec: 30,
+        sansCharge: true,
+        parCote: true,
+        variantes: [
+          { id: "m-abduction-bande", rang: 1, nom: "Bande pliée au-dessus des genoux", materiel: "Bande rouge", contrainte: "aucune" }
+        ]
+      },
+      {
+        id: "m-planche-lat",
+        nom: "Planche latérale sur l'avant-bras",
+        mode: "duree",
+        series: 3,
+        dureeCibleSec: 25,
+        rpe: "20-30 s, tenue propre",
+        reposSec: 30,
+        sansCharge: true,
+        parCote: true,
+        variantes: [
+          { id: "m-planche-lat-std", rang: 1, nom: "Sur l'avant-bras", contrainte: "aucune" },
+          { id: "m-planche-lat-genoux", rang: 2, nom: "Sur les genoux", contrainte: "aucune" }
+        ]
+      },
+      {
+        id: "m-dead-bug",
+        nom: "Dead bug",
+        mode: "reps",
+        series: 3,
+        repsMin: 10,
+        repsMax: 10,
+        rpe: "Bas du dos collé au sol",
+        reposSec: 30,
+        sansCharge: true,
+        variantes: [
+          { id: "m-dead-bug-std", rang: 1, nom: "Bras et jambe opposés, lentement", contrainte: "aucune" }
         ]
       }
     ]
   },
 
+  // ============ C — HAUT DU CORPS, ÉPAULES & GAINAGE ============
   {
     id: "M3",
-    lettre: "M3",
-    nom: "Mobilité & prévention",
-    dominante: "Épaule, cheville, doigts, gainage · ~20 min",
-    objectif:
-      "La séance la plus utile de la semaine : c'est exactement la routine que tu sautes systématiquement en fin de séance à la salle. Ici elle a vingt minutes pour elle seule.",
-    piscine: {
-      consigne:
-        "Compté en allers-retours, jamais en minutes. Progression sur la semaine : 6 → 8 → 10 → 12 → 14. À partir du 3e jour, alterne 1 A/R rapide et 1 A/R lent : plus court, moins ennuyeux, et l'intensité agit mieux sur la graisse viscérale. Jours 4 et 6 : ajoute 10 sauts verticaux dans l'eau (l'immersion décharge la cheville droite).",
-      reglesEpaule: [
-        "2 allers-retours de crawl MAXIMUM au premier jour",
-        "La moindre gêne, pendant ou le lendemain → brasse uniquement pour toute la semaine",
-        "Tu n'as pas renagé depuis ta blessure : le crawl est le mouvement le plus exigeant pour une coiffe"
-      ]
-    },
-    signauxArret: ["Tout doit rester léger et indolore — aucun exercice ici ne se force"],
+    lettre: "C",
+    nom: "Haut du corps, épaules & gainage",
+    dominante: "Dos, épaules, coiffe, gainage, équilibre · ~30-35 min",
+    objectif: `Poignet toujours aligné avec l'avant-bras : si tenir une poignée gêne, passer la boucle autour des avant-bras. 2 tours si le temps manque. Séance tampon possible entre les deux séances jambes. ${PROGRESSION_MAISON}`,
+    routineId: "routine-maison-haut",
+    routinePosition: "debut",
+    signauxArret: ARRET_MAISON,
     exercices: [
       {
-        id: "m-rot-ext",
-        nom: "Rotations externes coude au corps",
-        mode: "reps",
-        series: 3,
-        repsMin: 15,
-        repsMax: 15,
-        rpe: "Léger",
-        reposSec: 30,
-        sansCharge: true,
-        parCote: true,
-        variantes: [
-          { id: "m-rot-band", rang: 1, nom: "Bande tenue à deux mains, coude collé au corps", materiel: "Power band 15 kg", contrainte: "faible" }
-        ]
-      },
-      {
-        id: "m-pull-apart-3",
-        nom: "Band pull-apart",
-        mode: "reps",
-        series: 3,
-        repsMin: 20,
-        repsMax: 20,
-        rpe: "Léger",
-        reposSec: 30,
-        sansCharge: true,
-        variantes: [
-          { id: "m-pull-apart-3-std", rang: 1, nom: "Bras tendus devant", materiel: "Power band 15 kg", contrainte: "faible" }
-        ]
-      },
-      {
-        id: "m-scaption",
-        nom: "Scaption (bras en Y, pouces vers le haut)",
+        id: "m-tirage-v2",
+        nom: "Tirage vertical",
         mode: "reps",
         series: 3,
         repsMin: 12,
-        repsMax: 12,
-        rpe: "Léger, contrôle total",
-        reposSec: 30,
+        repsMax: 15,
+        rpe: "2-3 reps en réserve",
+        reposSec: 45,
         sansCharge: true,
+        progression: PLUS_DUR_ELASTIQUE,
         variantes: [
-          { id: "m-scaption-std", rang: 1, nom: "Poids du corps ou bande très légère", contrainte: "faible" }
+          { id: "m-tirage-bande", rang: 1, nom: "Bande ancrée en haut de porte, boucle autour des avant-bras", materiel: "Bande rouge + ancrage de porte", contrainte: "faible" }
         ]
       },
       {
-        id: "m-equilibre",
-        nom: "Équilibre unipodal droit, yeux fermés",
-        mode: "duree",
+        id: "m-rowing-v2",
+        nom: "Rowing",
+        mode: "reps",
         series: 3,
-        dureeCibleSec: 45,
-        rpe: "—",
-        reposSec: 30,
+        repsMin: 12,
+        repsMax: 15,
+        rpe: "2-3 reps en réserve",
+        reposSec: 45,
         sansCharge: true,
-        progression: "Yeux ouverts d'abord si c'est trop instable.",
+        progression: PLUS_DUR_ELASTIQUE,
         variantes: [
-          { id: "m-equilibre-std", rang: 1, nom: "Sur la jambe droite", contrainte: "aucune" }
+          { id: "m-rowing-sveltus10", rang: 1, nom: "Élastique ancré à mi-hauteur", materiel: "Sveltus 10 kg", contrainte: "faible" }
         ]
       },
       {
-        id: "m-sautillements",
-        nom: "Sautillements bas puis latéraux",
+        id: "m-dev-epaules-v2",
+        nom: "Développé épaules debout",
+        mode: "reps",
+        series: 3,
+        repsMin: 10,
+        repsMax: 12,
+        rpe: "2-3 reps en réserve",
+        reposSec: 45,
+        sansCharge: true,
+        variantes: [
+          { id: "m-dev-sveltus10", rang: 1, nom: "Élastique sous les pieds", materiel: "Sveltus 10 kg", contrainte: "modérée" }
+        ]
+      },
+      {
+        id: "m-face-pull",
+        nom: "Face pull",
         mode: "reps",
         series: 3,
         repsMin: 15,
         repsMax: 15,
-        rpe: "Réceptions silencieuses",
-        reposSec: 45,
+        rpe: "2-3 reps en réserve",
+        reposSec: 30,
         sansCharge: true,
+        adaptations: "Ancrage à hauteur du visage, tirage vers le front, coudes hauts.",
         variantes: [
-          { id: "m-sautillements-std", rang: 1, nom: "Sur place, puis d'un côté à l'autre", contrainte: "aucune" }
+          { id: "m-face-pull-bande", rang: 1, nom: "Bande ancrée à hauteur du visage", materiel: "Bande rouge + ancrage", contrainte: "faible" }
         ]
       },
       {
-        id: "m-extenseurs",
-        nom: "Extension des doigts contre élastique",
+        id: "m-rot-ext-v2",
+        nom: "Rotation externe, coude collé au corps",
         mode: "reps",
         series: 3,
-        repsMin: 20,
-        repsMax: 20,
-        rpe: "Léger",
+        repsMin: 15,
+        repsMax: 15,
+        rpe: "Léger, contrôlé",
+        reposSec: 30,
+        sansCharge: true,
+        parCote: true,
+        variantes: [
+          { id: "m-rot-ext-sveltus10", rang: 1, nom: "Élastique ancré à hauteur du coude", materiel: "Sveltus 10 kg", contrainte: "faible" }
+        ]
+      },
+      {
+        id: "m-pallof",
+        nom: "Pallof press debout (anti-rotation)",
+        mode: "reps",
+        series: 3,
+        repsMin: 10,
+        repsMax: 10,
+        rpe: "Contrôlé",
+        reposSec: 30,
+        sansCharge: true,
+        parCote: true,
+        variantes: [
+          { id: "m-pallof-sveltus10", rang: 1, nom: "Élastique ancré à hauteur de poitrine", materiel: "Sveltus 10 kg", contrainte: "faible" }
+        ]
+      },
+      {
+        id: "m-planche-c",
+        nom: "Planche sur les avant-bras",
+        mode: "duree",
+        series: 3,
+        dureeCibleSec: 30,
+        rpe: "Tenue propre",
         reposSec: 30,
         sansCharge: true,
         variantes: [
-          {
-            id: "m-extenseurs-std",
-            rang: 1,
-            nom: "Ouverture de la main contre résistance",
-            materiel: "Petit élastique",
-            contrainte: "aucune",
-            note: "Prévention de l'épitrochléite avant la reprise de l'escalade."
-          }
+          { id: "m-planche-c-std", rang: 1, nom: "Sur les avant-bras, poignets libres", contrainte: "aucune" }
         ]
       },
       {
-        id: "m-planche",
-        nom: "Planche + planche latérale",
+        id: "m-equilibre-v2",
+        nom: "Équilibre sur une jambe",
         mode: "duree",
         series: 3,
-        dureeCibleSec: 45,
-        rpe: "—",
-        reposSec: 45,
+        dureeCibleSec: 30,
+        rpe: "Yeux ouverts, puis fermés",
+        reposSec: 15,
         sansCharge: true,
-        progression: "Puis 30 s de planche latérale de chaque côté.",
+        parCote: true,
+        adaptations: "Réduit d'environ 38 % le risque d'entorse de la cheville.",
         variantes: [
-          { id: "m-planche-std", rang: 1, nom: "Gainage ventral puis latéral", contrainte: "aucune" }
+          { id: "m-equilibre-v2-std", rang: 1, nom: "Sur une jambe, pieds nus", contrainte: "aucune" }
         ]
       }
     ]
-  },
-
+  }
 ];
 
 /** Toutes les séances confondues — pour les recherches par id (historique, charges). */
@@ -1832,7 +1829,8 @@ export function estMaison(type: string): boolean {
   return type.startsWith("M");
 }
 
-export const ORDRE_MAISON: ReadonlyArray<string> = ["M1", "M2", "M3"];
+// Semaine type maison : A lundi · C mercredi · B vendredi.
+export const ORDRE_MAISON: ReadonlyArray<string> = ["M1", "M3", "M2"];
 
 export function getOrdre(mode: Mode): ReadonlyArray<string> {
   return mode === "maison" ? ORDRE_MAISON : ORDRE_SUGGESTION;

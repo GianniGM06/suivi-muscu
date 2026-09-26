@@ -87,7 +87,7 @@ export function Home({
 
       {mode === "maison" && (
         <p className="muted small mode-note">
-          Élastique 15 kg, piscine et poids du corps. Charge faible : va près de l'échec, 15-25 reps.
+          Élastiques 15 kg et 10 kg, grande bande en boucle et poids du corps. Circuit de 2-3 tours, 2-3 reps en réserve en fin de série.
         </p>
       )}
 
