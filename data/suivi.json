@@ -1,7 +1,7 @@
 {
   "app": "suivi-muscu",
   "schemaVersion": 1,
-  "exporteLe": "2026-09-23T19:34:22.914Z",
+  "exporteLe": "2026-09-26T15:13:40.558Z",
   "sessions": [
     {
       "id": "s-1786106117230",
@@ -1379,6 +1379,169 @@
           ]
         }
       ]
+    },
+    {
+      "id": "s-1790432682601",
+      "type": "B",
+      "dateDebut": "2026-09-26T14:24:54.827Z",
+      "dateFin": "2026-09-26T15:12:43.237Z",
+      "statut": "terminee",
+      "routineFaite": true,
+      "cardio": {
+        "fait": false
+      },
+      "exercices": [
+        {
+          "exerciceId": "cmj",
+          "varianteId": "cmj-std",
+          "saute": false,
+          "series": [
+            {
+              "reps": 5,
+              "faite": true
+            },
+            {
+              "reps": 5,
+              "faite": true
+            },
+            {
+              "reps": 5,
+              "faite": true
+            },
+            {
+              "reps": 5,
+              "faite": true
+            }
+          ]
+        },
+        {
+          "exerciceId": "saut-elan",
+          "varianteId": "elan-std",
+          "saute": false,
+          "series": [
+            {
+              "reps": 4,
+              "faite": true
+            },
+            {
+              "reps": 4,
+              "faite": true
+            },
+            {
+              "reps": 4,
+              "faite": true
+            }
+          ]
+        },
+        {
+          "exerciceId": "bonds-lateraux",
+          "varianteId": "bonds-std",
+          "saute": false,
+          "series": [
+            {
+              "reps": 6,
+              "faite": true
+            },
+            {
+              "reps": 4,
+              "faite": true
+            },
+            {
+              "reps": 4,
+              "faite": true
+            }
+          ]
+        },
+        {
+          "exerciceId": "presse",
+          "varianteId": "hack",
+          "saute": false,
+          "series": [
+            {
+              "charge": 80,
+              "reps": 8,
+              "rpe": 8,
+              "faite": true
+            },
+            {
+              "charge": 80,
+              "reps": 8,
+              "rpe": 9,
+              "faite": true
+            },
+            {
+              "charge": 80,
+              "reps": 8,
+              "faite": true
+            },
+            {
+              "charge": 80,
+              "reps": 8,
+              "faite": true
+            }
+          ]
+        },
+        {
+          "exerciceId": "fente-bulgare",
+          "varianteId": "bulgare-halt",
+          "saute": true,
+          "series": [
+            {
+              "reps": 8,
+              "faite": false
+            },
+            {
+              "reps": 8,
+              "faite": false
+            },
+            {
+              "reps": 8,
+              "faite": false
+            }
+          ]
+        },
+        {
+          "exerciceId": "leg-curl",
+          "varianteId": "tg-legcurl",
+          "saute": false,
+          "series": [
+            {
+              "charge": 30,
+              "reps": 12,
+              "faite": true
+            },
+            {
+              "charge": 30,
+              "reps": 12,
+              "faite": true
+            },
+            {
+              "charge": 30,
+              "reps": 12,
+              "faite": true
+            }
+          ]
+        },
+        {
+          "exerciceId": "mollets",
+          "varianteId": "tg-calf",
+          "saute": false,
+          "series": [
+            {
+              "reps": 15,
+              "faite": false
+            },
+            {
+              "reps": 15,
+              "faite": false
+            },
+            {
+              "reps": 15,
+              "faite": false
+            }
+          ]
+        }
+      ]
     }
   ],
   "chargesReference": [
@@ -1592,6 +1755,44 @@
         "unite": "kg",
         "date": "2026-09-23T19:34:18.699Z"
       }
+    },
+    {
+      "exerciceId": "cmj",
+      "varianteId": "cmj-std"
+    },
+    {
+      "exerciceId": "saut-elan",
+      "varianteId": "elan-std"
+    },
+    {
+      "exerciceId": "bonds-lateraux",
+      "varianteId": "bonds-std"
+    },
+    {
+      "exerciceId": "presse",
+      "varianteId": "hack",
+      "chargeReference": 80,
+      "derniereCharge": 80,
+      "meilleurePerf": {
+        "valeur": 80,
+        "unite": "kg",
+        "date": "2026-09-26T15:13:39.703Z"
+      }
+    },
+    {
+      "exerciceId": "leg-curl",
+      "varianteId": "tg-legcurl",
+      "chargeReference": 30,
+      "derniereCharge": 30,
+      "meilleurePerf": {
+        "valeur": 30,
+        "unite": "kg",
+        "date": "2026-09-26T15:13:39.703Z"
+      }
+    },
+    {
+      "exerciceId": "mollets",
+      "varianteId": "tg-calf"
     }
   ],
   "tests": []
