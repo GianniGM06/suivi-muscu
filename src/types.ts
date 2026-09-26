@@ -74,7 +74,7 @@ export interface PiscineBloc {
   reglesEpaule: string[];
 }
 
-export type SeanceId = "A" | "B" | "C" | "D" | "E" | "M1" | "M2" | "M3" | "M4";
+export type SeanceId = "H" | "A" | "B" | "C" | "D" | "E" | "O" | "M1" | "M2" | "M3" | "M4";
 
 export type Mode = "salle" | "maison";
 

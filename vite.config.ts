@@ -13,7 +13,7 @@ export default defineConfig({
       manifest: {
         name: "Suivi Muscu",
         short_name: "Muscu",
-        description: "Suivi de musculation personnel — Programme Août 2026",
+        description: "Suivi de musculation personnel — Programme v5",
         lang: "fr",
         start_url: "/suivi-muscu/",
         scope: "/suivi-muscu/",

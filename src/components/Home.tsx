@@ -42,10 +42,13 @@ export function Home({
   const derniere = terminees[terminees.length - 1];
   const joursConsec = joursConsecutifsEntrainement(data);
   const avertJours = mode === "salle" && joursConsec >= 2;
-  const avertBE = (id: SeanceId) =>
+  // Bras juste après le haut du corps : biceps et avant-bras ont déjà travaillé au tirage.
+  const avertHautBras = (id: SeanceId) =>
     mode === "salle" &&
     derniere !== undefined &&
-    ((derniere.type === "B" && id === "E") || (derniere.type === "E" && id === "B"));
+    derniere.type === "H" &&
+    id === "D" &&
+    Date.now() - new Date(derniere.dateDebut).getTime() < 36 * 3600 * 1000;
 
   const sync = data.sync;
   const syncBadge =
@@ -122,7 +125,9 @@ export function Home({
               <div className="muted">
                 {derniereParType.has(s.id) ? `Dernière fois : ${derniereParType.get(s.id)}` : "Jamais faite"}
               </div>
-              {avertBE(s.id) && <div className="alert-inline">⚠️ B et E ne devraient pas s'enchaîner</div>}
+              {avertHautBras(s.id) && (
+                <div className="alert-inline">⚠️ Juste après le haut du corps : bras et avant-bras encore fatigués</div>
+              )}
             </div>
             <div className="seance-fleche">›</div>
           </button>

@@ -83,15 +83,22 @@ function Historique({ data }: { data: AppData }) {
 }
 
 function Charges({ data }: { data: AppData }) {
+  // Un exercice partagé entre le programme actuel et l'archive n'est affiché
+  // qu'une fois, sous la séance actuelle (SEANCES liste l'archive en dernier).
+  const dejaAffiches = new Set<string>();
+  const seancesAvecExos = SEANCES.map((seance) => {
+    const exos = seance.exercices.filter((e) => !e.sansCharge && !dejaAffiches.has(e.id));
+    exos.forEach((e) => dejaAffiches.add(e.id));
+    return { seance, exos };
+  }).filter(({ exos }) => exos.length > 0);
   return (
     <div>
-      {SEANCES.map((seance) => (
+      {seancesAvecExos.map(({ seance, exos }) => (
         <details key={seance.id} className="card">
           <summary>
             <strong>{seance.lettre} — {seance.nom}</strong>
           </summary>
-          {seance.exercices
-            .filter((e) => !e.sansCharge)
+          {exos
             .map((exo) => {
               const st = data.exerciseState[exo.id];
               if (!st) return (

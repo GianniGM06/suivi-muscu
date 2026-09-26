@@ -1,7 +1,7 @@
 // ============================================================
 // FILTRE DE CONFIDENTIALITÉ + SÉPARATION SALLE / MAISON
 // Deux fichiers distincts sur GitHub :
-//   data/suivi.json         → séances SALLE (A-E)
+//   data/suivi.json         → séances SALLE (1, 2, 3, + et archive A-E)
 //   data/suivi-maison.json  → séances MAISON (M1-M3)
 // Champs qui ne doivent JAMAIS sortir : geneEpaule, geneCheville,
 // note, token, settings, poids, tour de taille, e-mail, identifiants.

@@ -1,6 +1,6 @@
 # Suivi Muscu 🏋️
 
-PWA personnelle de suivi de musculation — Programme Août 2026 (séances A–E en rotation libre).
+PWA personnelle de suivi de musculation — Programme v5, septembre 2026 (1 Haut du corps · 2 Bras · 3 Jambes volley · + Optionnelle).
 Mobile-first (iPhone), français, hors ligne, sans compte, sans backend. Sauvegarde manuelle vers GitHub.
 
 **Confidentialité** : gênes, notes libres et toute donnée personnelle restent sur le téléphone.
