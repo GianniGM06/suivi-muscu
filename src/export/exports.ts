@@ -1,5 +1,5 @@
 import type { AppData } from "../types";
-import { getExercice, getSeance, TESTS } from "../data/program";
+import { getExercice, getSeance, libelleExoVariante, TESTS } from "../data/program";
 
 function telecharger(nom: string, contenu: string, type: string): void {
   const blob = new Blob([contenu], { type });
@@ -85,11 +85,12 @@ export function bilanPourClaude(data: AppData): string {
   // Charges de référence actuelles
   l.push("");
   l.push("## Charges de référence actuelles");
+  // Une ligne par variante : 80 kg au hack squat et 220 kg à la presse ne se comparent pas.
   for (const [exerciceId, st] of Object.entries(data.exerciseState)) {
-    const exo = getExercice(exerciceId);
-    const v = st.parVariante[st.varianteActive];
-    if (v?.chargeReference !== undefined) {
-      l.push(`- ${exo?.nom ?? exerciceId} : ${v.chargeReference} kg`);
+    for (const [varianteId, v] of Object.entries(st.parVariante)) {
+      if (v.chargeReference === undefined) continue;
+      const active = varianteId === st.varianteActive ? " (variante active)" : "";
+      l.push(`- ${libelleExoVariante(exerciceId, varianteId)} : ${v.chargeReference} kg${active}`);
     }
   }
 

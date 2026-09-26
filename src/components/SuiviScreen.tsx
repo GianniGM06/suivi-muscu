@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { getExercice, SEANCES, TESTS } from "../data/program";
+import { getExercice, libelleExoVariante, SEANCES, TESTS } from "../data/program";
 import type { AppData, TestRecord } from "../types";
 import { nomSeance } from "../export/exports";
 
@@ -63,10 +63,10 @@ function Historique({ data }: { data: AppData }) {
             <ul>
               {s.exercices.map((e, i) => {
                 const exo = getExercice(e.exerciceId);
-                if (e.saute) return <li key={i} className="muted">{exo?.nom} — sauté</li>;
+                if (e.saute) return <li key={i} className="muted">{exo?.nom ?? e.exerciceId} — sauté</li>;
                 return (
                   <li key={i}>
-                    {exo?.nom} :{" "}
+                    {libelleExoVariante(e.exerciceId, e.varianteId)} :{" "}
                     {e.series
                       .filter((x) => x.faite)
                       .map((x) => (x.charge !== undefined ? `${x.charge}kg×${x.reps ?? x.dureeSec ?? "?"}` : `${x.reps ?? x.dureeSec ?? "?"}`))

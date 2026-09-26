@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import sauvegarde from "../data/suivi.json";
-import { getExercice, getRoutine, getSeance, getSeances, ORDRE_MAISON, ORDRE_SUGGESTION, SEANCES_MAISON, SEANCES_SALLE } from "../src/data/program";
+import { getExercice, getRoutine, libelleExoVariante, getSeance, getSeances, ORDRE_MAISON, ORDRE_SUGGESTION, SEANCES_MAISON, SEANCES_SALLE } from "../src/data/program";
 
 describe("Programme v5", () => {
   it("propose les 4 séances salle dans l'ordre 1, 2, 3, +", () => {
@@ -33,5 +33,11 @@ describe("Programme v5", () => {
     expect(new Set(idsMaison).size).toBe(idsMaison.length);
     expect(idsMaison.every((id) => id.startsWith("m-") && !idsSalle.has(id))).toBe(true);
     for (const s of SEANCES_MAISON) expect(getRoutine(s.routineId), s.id).toBeDefined();
+  });
+
+  it("nomme la variante pour ne jamais confondre des charges de machines différentes", () => {
+    expect(libelleExoVariante("presse", "hack")).toBe("Presse à cuisses · Hack Squat");
+    expect(libelleExoVariante("presse", "tg-legpress")).toBe("Presse à cuisses · Leg Press / Linear Leg Press");
+    expect(libelleExoVariante("reverse-curl", "reverse-ez")).toBe("Reverse curl (extenseurs)");
   });
 });

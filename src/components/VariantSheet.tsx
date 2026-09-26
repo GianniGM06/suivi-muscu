@@ -1,4 +1,4 @@
-import type { Exercice } from "../types";
+import type { Exercice, VarianteState } from "../types";
 
 const CONTRAINTE_LABEL: Record<string, { txt: string; cls: string }> = {
   aucune: { txt: "Épaule : aucune contrainte", cls: "c-aucune" },
@@ -10,11 +10,13 @@ const CONTRAINTE_LABEL: Record<string, { txt: string; cls: string }> = {
 export function VariantSheet({
   exo,
   varianteActive,
+  etatParVariante = {},
   onChoisir,
   onFermer
 }: {
   exo: Exercice;
   varianteActive: string;
+  etatParVariante?: Record<string, VarianteState>;
   onChoisir: (id: string) => void;
   onFermer: () => void;
 }) {
@@ -37,6 +39,13 @@ export function VariantSheet({
                     {v.id === varianteActive && <span className="badge badge-ok"> active</span>}
                   </div>
                   {(v.machine || v.materiel) && <div className="muted">{v.machine ?? v.materiel}</div>}
+                  {!exo.sansCharge && !v.interdit && (
+                    <div className="muted small">
+                      {etatParVariante[v.id]?.derniereCharge !== undefined
+                        ? `Dernière charge : ${etatParVariante[v.id].derniereCharge} kg`
+                        : "Jamais utilisée — charge à calibrer"}
+                    </div>
+                  )}
                   <div className={`contrainte ${c.cls}`}>{c.txt}</div>
                   {v.note && <div className="muted small">{v.note}</div>}
                 </div>

@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { getExercice } from "../data/program";
+import { getExercice, libelleExoVariante } from "../data/program";
 import type { AppData, SessionRecord } from "../types";
 import { nomSeance } from "../export/exports";
 
@@ -100,7 +100,7 @@ export function SummaryScreen({
                   setMajs(copy);
                 }}
               />
-              {getExercice(m.exerciceId)?.nom ?? m.exerciceId} : {m.ancienne ?? "—"} kg → {m.nouvelleCharge} kg
+              {libelleExoVariante(m.exerciceId, m.varianteId)} : {m.ancienne ?? "—"} kg → {m.nouvelleCharge} kg
             </label>
           ))}
         </div>

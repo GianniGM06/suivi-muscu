@@ -137,7 +137,11 @@ export function SessionScreen({
                 </div>
                 <div className="muted variante-active">▸ {variante.nom}{variante.machine ? ` (${variante.machine})` : ""}</div>
                 {!exo.sansCharge && (
-                  <div className="muted">Charge de référence : {st?.chargeReference ?? "—"} kg</div>
+                  <div className="muted">
+                    {st?.derniereCharge !== undefined || st?.chargeReference !== undefined
+                      ? `Sur cette variante — référence : ${st?.chargeReference ?? "—"} kg · dernière : ${st?.derniereCharge ?? "—"} kg`
+                      : "Aucune charge enregistrée sur cette variante"}
+                  </div>
                 )}
               </div>
               <span className="exo-chevron">{ouvert ? "▾" : "▸"}</span>
@@ -352,9 +356,20 @@ export function SessionScreen({
         <VariantSheet
           exo={variantesPour}
           varianteActive={log.exercices.find((e) => e.exerciceId === variantesPour.id)!.varianteId}
+          etatParVariante={data.exerciseState[variantesPour.id]?.parVariante ?? {}}
           onChoisir={(vid) => {
             const l = structuredClone(log);
             const el = l.exercices.find((e) => e.exerciceId === variantesPour.id)!;
+            // Les charges sont enregistrées sur la variante sélectionnée : des séries
+            // déjà cochées passeraient sur la nouvelle variante et fausseraient ses charges.
+            if (
+              el.series.some((s) => s.faite) &&
+              !window.confirm(
+                "Des séries sont déjà cochées : elles seront enregistrées sur la nouvelle variante. Elles vont être décochées pour éviter de mélanger les charges. Continuer ?"
+              )
+            )
+              return;
+            for (const s of el.series) s.faite = false;
             el.varianteId = vid;
             // Préremplir depuis la dernière charge connue de CETTE variante
             const derniere = data.exerciseState[variantesPour.id]?.parVariante[vid]?.derniereCharge;

@@ -1852,6 +1852,19 @@ export function getSeance(id: string): Seance | undefined {
   return SEANCES.find((s) => s.id === id);
 }
 
+/** Nom lisible d'une variante — les charges sont toujours rattachées à une variante précise. */
+export function nomVariante(exerciceId: string, varianteId: string): string | undefined {
+  return getExercice(exerciceId)?.variantes.find((v) => v.id === varianteId)?.nom;
+}
+
+/** Libellé « Exercice · variante », la variante n'étant précisée que si l'exercice en propose plusieurs. */
+export function libelleExoVariante(exerciceId: string, varianteId: string): string {
+  const exo = getExercice(exerciceId);
+  if (!exo) return exerciceId;
+  const v = nomVariante(exerciceId, varianteId);
+  return exo.variantes.length > 1 && v ? `${exo.nom} · ${v}` : exo.nom;
+}
+
 export function getRoutine(id: string | undefined): Routine | undefined {
   return ROUTINES.find((r) => r.id === id);
 }
