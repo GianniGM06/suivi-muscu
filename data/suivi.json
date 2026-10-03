@@ -1,7 +1,7 @@
 {
   "app": "suivi-muscu",
   "schemaVersion": 1,
-  "exporteLe": "2026-10-01T20:31:10.489Z",
+  "exporteLe": "2026-10-03T15:08:36.495Z",
   "sessions": [
     {
       "id": "s-1786106117230",
@@ -1728,6 +1728,206 @@
             {
               "charge": 15,
               "reps": 15,
+              "faite": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s-1791036914384",
+      "type": "D",
+      "dateDebut": "2026-10-03T14:15:15.364Z",
+      "dateFin": "2026-10-03T15:08:34.825Z",
+      "statut": "terminee",
+      "routineFaite": false,
+      "cardio": {
+        "fait": false
+      },
+      "exercices": [
+        {
+          "exerciceId": "extenseurs-doigts",
+          "varianteId": "elastique-doigts",
+          "saute": true,
+          "series": [
+            {
+              "reps": 20,
+              "faite": false
+            },
+            {
+              "reps": 20,
+              "faite": false
+            }
+          ]
+        },
+        {
+          "exerciceId": "hammer-curl",
+          "varianteId": "hammer-halt",
+          "saute": false,
+          "series": [
+            {
+              "charge": 12,
+              "reps": 8,
+              "rpe": 9,
+              "faite": true
+            },
+            {
+              "charge": 10,
+              "reps": 10,
+              "rpe": 8,
+              "faite": true
+            },
+            {
+              "charge": 10,
+              "reps": 10,
+              "rpe": 10,
+              "faite": true
+            }
+          ]
+        },
+        {
+          "exerciceId": "pushdown-d",
+          "varianteId": "pushdown-rope",
+          "saute": false,
+          "series": [
+            {
+              "charge": 12.5,
+              "reps": 12,
+              "rpe": 9,
+              "faite": true
+            },
+            {
+              "charge": 12.5,
+              "reps": 13,
+              "rpe": 10,
+              "faite": true
+            },
+            {
+              "charge": 12.5,
+              "reps": 10,
+              "rpe": 10,
+              "faite": true
+            }
+          ]
+        },
+        {
+          "exerciceId": "curl-etirement",
+          "varianteId": "curl-incline",
+          "saute": false,
+          "series": [
+            {
+              "charge": 8,
+              "reps": 12,
+              "rpe": 8,
+              "faite": true
+            },
+            {
+              "charge": 8,
+              "reps": 10,
+              "rpe": 10,
+              "faite": true
+            },
+            {
+              "charge": 6,
+              "reps": 10,
+              "rpe": 9,
+              "faite": true
+            }
+          ]
+        },
+        {
+          "exerciceId": "reverse-curl",
+          "varianteId": "reverse-ez",
+          "saute": false,
+          "series": [
+            {
+              "charge": 12.5,
+              "reps": 12,
+              "rpe": 7,
+              "faite": true
+            },
+            {
+              "charge": 12.5,
+              "reps": 12,
+              "rpe": 8,
+              "faite": true
+            },
+            {
+              "charge": 12.5,
+              "reps": 10,
+              "rpe": 9,
+              "faite": true
+            }
+          ]
+        },
+        {
+          "exerciceId": "wrist-curl",
+          "varianteId": "wrist-halt",
+          "saute": false,
+          "series": [
+            {
+              "charge": 8,
+              "reps": 25,
+              "rpe": 10,
+              "faite": true
+            },
+            {
+              "charge": 8,
+              "reps": 20,
+              "rpe": 8,
+              "faite": true
+            },
+            {
+              "charge": 8,
+              "reps": 20,
+              "rpe": 8,
+              "faite": true
+            }
+          ]
+        },
+        {
+          "exerciceId": "reverse-wrist-curl",
+          "varianteId": "rwrist-halt",
+          "saute": false,
+          "series": [
+            {
+              "charge": 4,
+              "reps": 15,
+              "rpe": 10,
+              "faite": true
+            },
+            {
+              "charge": 4,
+              "reps": 20,
+              "rpe": 9,
+              "faite": true
+            },
+            {
+              "charge": 4,
+              "reps": 20,
+              "rpe": 10,
+              "faite": true
+            }
+          ]
+        },
+        {
+          "exerciceId": "grip-long",
+          "varianteId": "farmer-d",
+          "saute": false,
+          "series": [
+            {
+              "charge": 64,
+              "dureeSec": 40,
+              "faite": true
+            },
+            {
+              "charge": 64,
+              "dureeSec": 40,
+              "faite": true
+            },
+            {
+              "charge": 64,
+              "dureeSec": 40,
               "faite": true
             }
           ]
