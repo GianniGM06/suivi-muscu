@@ -1,7 +1,7 @@
 {
   "app": "suivi-muscu",
   "schemaVersion": 1,
-  "exporteLe": "2026-10-03T15:08:36.495Z",
+  "exporteLe": "2026-10-13T10:57:36.838Z",
   "sessions": [
     {
       "id": "s-1786106117230",
@@ -1933,6 +1933,205 @@
           ]
         }
       ]
+    },
+    {
+      "id": "s-1791885426036",
+      "type": "H",
+      "dateDebut": "2026-10-13T09:58:27.538Z",
+      "dateFin": "2026-10-13T10:57:35.235Z",
+      "statut": "terminee",
+      "routineFaite": false,
+      "cardio": {
+        "fait": false
+      },
+      "exercices": [
+        {
+          "exerciceId": "pullover-activation",
+          "varianteId": "cable-pullover-act",
+          "saute": false,
+          "series": [
+            {
+              "charge": 12.5,
+              "reps": 12,
+              "rpe": 5,
+              "faite": true
+            },
+            {
+              "charge": 15,
+              "reps": 15,
+              "rpe": 7,
+              "faite": true
+            }
+          ]
+        },
+        {
+          "exerciceId": "tirage-vertical",
+          "varianteId": "tg-vertical",
+          "saute": false,
+          "series": [
+            {
+              "charge": 45,
+              "reps": 8,
+              "rpe": 8,
+              "faite": true
+            },
+            {
+              "charge": 45,
+              "reps": 8,
+              "rpe": 8,
+              "faite": true
+            },
+            {
+              "charge": 40,
+              "reps": 10,
+              "rpe": 8,
+              "faite": true
+            }
+          ]
+        },
+        {
+          "exerciceId": "dev-incline",
+          "varianteId": "hs-incline",
+          "saute": false,
+          "series": [
+            {
+              "charge": 20,
+              "reps": 10,
+              "rpe": 8,
+              "faite": true
+            },
+            {
+              "charge": 20,
+              "reps": 8,
+              "rpe": 10,
+              "faite": true
+            },
+            {
+              "charge": 20,
+              "reps": 8,
+              "rpe": 10,
+              "faite": true
+            }
+          ]
+        },
+        {
+          "exerciceId": "rowing",
+          "varianteId": "row-halt-uni",
+          "saute": false,
+          "series": [
+            {
+              "charge": 14,
+              "reps": 10,
+              "rpe": 7,
+              "faite": true
+            },
+            {
+              "charge": 16,
+              "reps": 10,
+              "rpe": 7,
+              "faite": true
+            },
+            {
+              "charge": 18,
+              "reps": 10,
+              "rpe": 8,
+              "faite": true
+            }
+          ]
+        },
+        {
+          "exerciceId": "dev-epaules",
+          "varianteId": "tg-shoulder",
+          "saute": false,
+          "series": [
+            {
+              "charge": 20,
+              "reps": 10,
+              "rpe": 8,
+              "faite": true
+            },
+            {
+              "charge": 20,
+              "reps": 8,
+              "rpe": 9,
+              "faite": true
+            },
+            {
+              "charge": 20,
+              "reps": 6,
+              "rpe": 10,
+              "faite": true
+            }
+          ]
+        },
+        {
+          "exerciceId": "face-pull-h",
+          "varianteId": "face-pull-corde",
+          "saute": false,
+          "series": [
+            {
+              "charge": 7.5,
+              "reps": 15,
+              "rpe": 6,
+              "faite": true
+            },
+            {
+              "charge": 7.5,
+              "reps": 15,
+              "rpe": 8,
+              "faite": true
+            },
+            {
+              "charge": 7.5,
+              "reps": 15,
+              "rpe": 8,
+              "faite": true
+            }
+          ]
+        },
+        {
+          "exerciceId": "elev-lat-a",
+          "varianteId": "cable-lat",
+          "saute": false,
+          "series": [
+            {
+              "charge": 2.5,
+              "reps": 15,
+              "rpe": 7,
+              "faite": true
+            },
+            {
+              "charge": 2.5,
+              "reps": 12,
+              "rpe": 10,
+              "faite": true
+            },
+            {
+              "charge": 2.5,
+              "reps": 12,
+              "rpe": 8,
+              "faite": true
+            }
+          ]
+        },
+        {
+          "exerciceId": "rotation-ext-a",
+          "varianteId": "rot-elastique",
+          "saute": false,
+          "series": [
+            {
+              "charge": 15,
+              "reps": 15,
+              "faite": true
+            },
+            {
+              "charge": 15,
+              "reps": 15,
+              "faite": true
+            }
+          ]
+        }
+      ]
     }
   ],
   "chargesReference": [
@@ -2097,8 +2296,8 @@
     {
       "exerciceId": "tirage-vertical",
       "varianteId": "tg-vertical",
-      "chargeReference": 50,
-      "derniereCharge": 50,
+      "chargeReference": 45,
+      "derniereCharge": 45,
       "meilleurePerf": {
         "valeur": 50,
         "unite": "kg",
@@ -2125,6 +2324,17 @@
         "valeur": 20,
         "unite": "kg",
         "date": "2026-10-01T20:31:09.623Z"
+      }
+    },
+    {
+      "exerciceId": "rowing",
+      "varianteId": "row-halt-uni",
+      "chargeReference": 18,
+      "derniereCharge": 18,
+      "meilleurePerf": {
+        "valeur": 18,
+        "unite": "kg",
+        "date": "2026-10-13T10:57:36.087Z"
       }
     },
     {
@@ -2199,23 +2409,23 @@
     {
       "exerciceId": "pullover-activation",
       "varianteId": "cable-pullover-act",
-      "chargeReference": 12.5,
-      "derniereCharge": 12.5,
+      "chargeReference": 15,
+      "derniereCharge": 15,
       "meilleurePerf": {
-        "valeur": 12.5,
+        "valeur": 15,
         "unite": "kg",
-        "date": "2026-10-01T20:31:09.623Z"
+        "date": "2026-10-13T10:57:36.087Z"
       }
     },
     {
       "exerciceId": "face-pull-h",
       "varianteId": "face-pull-corde",
-      "chargeReference": 5,
-      "derniereCharge": 5,
+      "chargeReference": 7.5,
+      "derniereCharge": 7.5,
       "meilleurePerf": {
-        "valeur": 5,
+        "valeur": 7.5,
         "unite": "kg",
-        "date": "2026-10-01T20:31:09.623Z"
+        "date": "2026-10-13T10:57:36.087Z"
       }
     }
   ],
