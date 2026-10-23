@@ -1,7 +1,7 @@
 {
   "app": "suivi-muscu",
   "schemaVersion": 1,
-  "exporteLe": "2026-10-13T10:58:07.092Z",
+  "exporteLe": "2026-10-23T11:52:56.416Z",
   "sessions": [
     {
       "id": "s-1786106117230",
@@ -2132,6 +2132,199 @@
           ]
         }
       ]
+    },
+    {
+      "id": "s-1792753696840",
+      "type": "D",
+      "dateDebut": "2026-10-23T11:08:17.553Z",
+      "dateFin": "2026-10-23T11:52:54.697Z",
+      "statut": "terminee",
+      "routineFaite": false,
+      "cardio": {
+        "fait": false
+      },
+      "exercices": [
+        {
+          "exerciceId": "extenseurs-doigts",
+          "varianteId": "elastique-doigts",
+          "saute": false,
+          "series": [
+            {
+              "reps": 20,
+              "faite": true
+            },
+            {
+              "reps": 20,
+              "faite": true
+            }
+          ]
+        },
+        {
+          "exerciceId": "hammer-curl",
+          "varianteId": "hammer-halt",
+          "saute": false,
+          "series": [
+            {
+              "charge": 12,
+              "reps": 10,
+              "rpe": 8,
+              "faite": true
+            },
+            {
+              "charge": 12,
+              "reps": 8,
+              "rpe": 9,
+              "faite": true
+            },
+            {
+              "charge": 12,
+              "reps": 8,
+              "rpe": 10,
+              "faite": true
+            }
+          ]
+        },
+        {
+          "exerciceId": "pushdown-d",
+          "varianteId": "pushdown-rope",
+          "saute": false,
+          "series": [
+            {
+              "charge": 12.5,
+              "reps": 15,
+              "rpe": 9,
+              "faite": true
+            },
+            {
+              "charge": 12.5,
+              "reps": 12,
+              "rpe": 10,
+              "faite": true
+            },
+            {
+              "charge": 10,
+              "reps": 12,
+              "rpe": 10,
+              "faite": true
+            }
+          ]
+        },
+        {
+          "exerciceId": "curl-etirement",
+          "varianteId": "curl-poulie-basse",
+          "saute": false,
+          "series": [
+            {
+              "charge": 7.5,
+              "reps": 10,
+              "rpe": 7,
+              "faite": true
+            },
+            {
+              "charge": 5,
+              "reps": 10,
+              "rpe": 8,
+              "faite": true
+            },
+            {
+              "charge": 5,
+              "reps": 10,
+              "rpe": 10,
+              "faite": true
+            }
+          ]
+        },
+        {
+          "exerciceId": "reverse-curl",
+          "varianteId": "reverse-ez",
+          "saute": false,
+          "series": [
+            {
+              "charge": 12.5,
+              "reps": 10,
+              "rpe": 8,
+              "faite": true
+            },
+            {
+              "charge": 12.5,
+              "reps": 10,
+              "rpe": 8,
+              "faite": true
+            },
+            {
+              "charge": 12.5,
+              "reps": 12,
+              "faite": false
+            }
+          ]
+        },
+        {
+          "exerciceId": "wrist-curl",
+          "varianteId": "wrist-halt",
+          "saute": true,
+          "series": [
+            {
+              "charge": 8,
+              "reps": 20,
+              "faite": false
+            },
+            {
+              "charge": 8,
+              "reps": 20,
+              "faite": false
+            },
+            {
+              "charge": 8,
+              "reps": 20,
+              "faite": false
+            }
+          ]
+        },
+        {
+          "exerciceId": "reverse-wrist-curl",
+          "varianteId": "rwrist-halt",
+          "saute": true,
+          "series": [
+            {
+              "charge": 4,
+              "reps": 20,
+              "faite": false
+            },
+            {
+              "charge": 4,
+              "reps": 20,
+              "faite": false
+            },
+            {
+              "charge": 4,
+              "reps": 20,
+              "faite": false
+            }
+          ]
+        },
+        {
+          "exerciceId": "grip-long",
+          "varianteId": "farmer-d",
+          "saute": true,
+          "series": [
+            {
+              "charge": 64,
+              "dureeSec": 40,
+              "faite": false
+            },
+            {
+              "charge": 64,
+              "dureeSec": 40,
+              "faite": false
+            },
+            {
+              "charge": 64,
+              "dureeSec": 40,
+              "faite": false
+            }
+          ]
+        }
+      ]
     }
   ],
   "chargesReference": [
@@ -2247,6 +2440,17 @@
         "valeur": 8,
         "unite": "kg",
         "date": "2026-08-18T15:06:42.031Z"
+      }
+    },
+    {
+      "exerciceId": "curl-etirement",
+      "varianteId": "curl-poulie-basse",
+      "chargeReference": 7.5,
+      "derniereCharge": 7.5,
+      "meilleurePerf": {
+        "valeur": 7.5,
+        "unite": "kg",
+        "date": "2026-10-23T11:52:55.566Z"
       }
     },
     {
