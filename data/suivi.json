@@ -1,7 +1,7 @@
 {
   "app": "suivi-muscu",
   "schemaVersion": 1,
-  "exporteLe": "2026-10-23T11:53:06.947Z",
+  "exporteLe": "2026-10-24T13:22:26.942Z",
   "sessions": [
     {
       "id": "s-1786106117230",
@@ -2325,6 +2325,177 @@
           ]
         }
       ]
+    },
+    {
+      "id": "s-1792845122016",
+      "type": "B",
+      "dateDebut": "2026-10-24T12:32:39.682Z",
+      "dateFin": "2026-10-24T13:22:25.571Z",
+      "statut": "terminee",
+      "routineFaite": true,
+      "cardio": {
+        "fait": false
+      },
+      "exercices": [
+        {
+          "exerciceId": "cmj",
+          "varianteId": "cmj-std",
+          "saute": false,
+          "series": [
+            {
+              "reps": 3,
+              "faite": true
+            },
+            {
+              "reps": 3,
+              "faite": true
+            },
+            {
+              "reps": 3,
+              "faite": true
+            },
+            {
+              "reps": 3,
+              "faite": true
+            }
+          ]
+        },
+        {
+          "exerciceId": "saut-elan",
+          "varianteId": "elan-std",
+          "saute": false,
+          "series": [
+            {
+              "reps": 3,
+              "faite": true
+            },
+            {
+              "reps": 3,
+              "faite": true
+            },
+            {
+              "reps": 3,
+              "faite": true
+            }
+          ]
+        },
+        {
+          "exerciceId": "bonds-lateraux",
+          "varianteId": "bonds-std",
+          "saute": true,
+          "series": [
+            {
+              "reps": 4,
+              "faite": false
+            },
+            {
+              "reps": 4,
+              "faite": false
+            },
+            {
+              "reps": 4,
+              "faite": false
+            }
+          ]
+        },
+        {
+          "exerciceId": "presse",
+          "varianteId": "tg-legpress",
+          "saute": false,
+          "series": [
+            {
+              "charge": 180,
+              "reps": 8,
+              "rpe": 7,
+              "faite": true
+            },
+            {
+              "charge": 220,
+              "reps": 6,
+              "rpe": 8,
+              "faite": true
+            },
+            {
+              "charge": 250,
+              "reps": 6,
+              "rpe": 8,
+              "faite": true
+            },
+            {
+              "charge": 200,
+              "reps": 6,
+              "rpe": 8,
+              "faite": true
+            }
+          ]
+        },
+        {
+          "exerciceId": "fente-bulgare",
+          "varianteId": "bulgare-halt",
+          "saute": false,
+          "series": [
+            {
+              "charge": 20,
+              "reps": 8,
+              "rpe": 9,
+              "faite": true
+            },
+            {
+              "charge": 20,
+              "reps": 8,
+              "rpe": 9,
+              "faite": true
+            },
+            {
+              "charge": 20,
+              "reps": 6,
+              "rpe": 10,
+              "faite": true
+            }
+          ]
+        },
+        {
+          "exerciceId": "leg-curl",
+          "varianteId": "tg-legcurl",
+          "saute": true,
+          "series": [
+            {
+              "charge": 30,
+              "reps": 12,
+              "faite": false
+            },
+            {
+              "charge": 30,
+              "reps": 12,
+              "faite": false
+            },
+            {
+              "charge": 30,
+              "reps": 12,
+              "faite": false
+            }
+          ]
+        },
+        {
+          "exerciceId": "mollets",
+          "varianteId": "tg-calf",
+          "saute": false,
+          "series": [
+            {
+              "reps": 15,
+              "faite": true
+            },
+            {
+              "reps": 15,
+              "faite": true
+            },
+            {
+              "reps": 15,
+              "faite": true
+            }
+          ]
+        }
+      ]
     }
   ],
   "chargesReference": [
@@ -2596,6 +2767,17 @@
       }
     },
     {
+      "exerciceId": "presse",
+      "varianteId": "tg-legpress",
+      "chargeReference": 250,
+      "derniereCharge": 250,
+      "meilleurePerf": {
+        "valeur": 250,
+        "unite": "kg",
+        "date": "2026-10-24T13:22:26.339Z"
+      }
+    },
+    {
       "exerciceId": "leg-curl",
       "varianteId": "tg-legcurl",
       "chargeReference": 30,
@@ -2630,6 +2812,17 @@
         "valeur": 7.5,
         "unite": "kg",
         "date": "2026-10-13T10:57:36.087Z"
+      }
+    },
+    {
+      "exerciceId": "fente-bulgare",
+      "varianteId": "bulgare-halt",
+      "chargeReference": 20,
+      "derniereCharge": 20,
+      "meilleurePerf": {
+        "valeur": 20,
+        "unite": "kg",
+        "date": "2026-10-24T13:22:26.339Z"
       }
     }
   ],
